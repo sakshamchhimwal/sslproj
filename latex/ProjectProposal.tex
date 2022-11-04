@@ -1,0 +1,152 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage{graphicx} 
+\usepackage{blindtext}
+\usepackage{color} 
+\date{}
+\begin{document}
+
+    \title{\begin{LARGE}
+	Software Systems Lab (CS213)\\  \textbf{Programming Drawboard}    
+    \end{LARGE}}
+    \maketitle
+    \begin{figure}[t!]
+    \begin{center}
+    	
+<<<<<<< Updated upstream
+    \includegraphics[scale=1]{logo.png}
+    
+    \end{center}
+    \end{figure}
+    \begin{flushright}
+    \begin{large}
+    
+    \textbf{Team Members\\}
+     Saksham Chhimwal(210010046)\\
+     Shubh Agarwal(210020046)\\
+     Shivesh Pandey(210020044)\\
+    \end{large}
+    \end{flushright}
+=======
+    \includegraphics[scale=0.8]{logo.jpg}
+    
+    \end{center}
+    \end{figure}
+>>>>>>> Stashed changes
+    \newpage
+    \tableofcontents
+    \newpage
+    \section{Issues}
+    \subsection{Need for visualization}
+    Its much of a standard operational procedure in programming to keep debugging the code, but
+    a specific area that most of the programmers find hard to check is the logical flow of functions inside the program. While writing a program it is necessary for a programmer to understand how the program is working and how the member functions are being called inside of the program(\texttt{Call Stack}). While debuggers of many \texttt{IDEs} do provide a interface of how the program is being executed but for a beginner it requires quite a bit of effort to understand how to use the debugger to its full potential.\\\\ The major drawback is it renders all in a textual manner which sometimes is not appealing to the user and hence they tend to avoid it and trace the program manually which is a great loss of manpower.
+   \subsection{Boilerplate}
+  		Many programming languages that are being used in modern world do not require writing boilerplate but programming languages like \texttt{C,C++} and \texttt{Java} to list a few demand the user to write boilerplate even to do the least of all the tasks intended. This might not seem to be a problem in large projects but its not always the case where we use them. As a student sometimes it is much more convenient to solve a problem using scripts rather than using the calculators, it does save a lot of time. But in programming languages that are typed statically there is no way where we can run a file without saving it.\\\\ 
+  		If a student wants to run a \texttt{C/C++} code to test a algorithm then he has to do a lot of work even before he implements the actual working piece of code thus creating unnecessary delays and increasing the scope of human error.
+  		
+  		\subsection{Cleaner Code}
+  		Many programmers fail to write a clean code which arises a problem when working in a team project. In a team a programmers main purpose is to make the code as readable as possible but its not something that one could learn in a day or two it needs experience. When someone fails to write a code that is not readable the its almost impossible for the co-worker to implement his logic without actually understanding what the other person has actually done.\\\\ But this can be avoided if the other person transports his code in terms of titled blocks which the other person can join to create what he actually wants without even looking into the code that is working behind it. This also provides the much needed intuition that is required when one is asked to work on a specific piece of the code of a much larger project.
+  		\newpage
+  		\section{Proposed Solution}
+  		We intend to create an Online Shell and a Drawboard that will act as both a quick alternative to run the code without even writing the boilerplate and a Drawboard in which the programmer can lay out his ideas in pieces and connect them to execute his program.\\Thus our solution can be separated into two different parts:
+  		\begin{enumerate}
+  		\item \textbf{DrawBoard}\\ This will act as a place for the programmer to control the flow of the functions in program. 
+  		\item \textbf{Online Shell}\\
+  		This will act as a quick way for the programmer to write down the code quickly without writing the unnecessary boilerplate.
+  		\begin{enumerate}
+  		\item \texttt{Python Shell}
+<<<<<<< Updated upstream
+  		\item \texttt{C++ Shell$^{*}$}
+  		\item \texttt{C Shell$^{*}$}
+=======
+  		\item \texttt{C/C++ Shell$^{*}$}
+>>>>>>> Stashed changes
+  		\end{enumerate}
+  		\end{enumerate}
+  		\begin{footnotesize}
+  		
+  		\begin{flushright}\textit{
+  		$^{*}$ If time permits.}
+  		\end{flushright}
+  		\end{footnotesize}
+
+<<<<<<< Updated upstream
+  		\subsection{The DrawBoard}
+  		It will provide the user with a \texttt{GUI} in which he will be able to see all the functions he has created and will be able to connect them in any way possible. The functions will then be executed in the manner the user connected them and eventually the program will execute.
+  		\\\\
+  		Apart from this the user will be provided with some functionalities that can be implemented directly using the the menu in the \textbf{Drawboard} like \texttt{Loops,GoTo,}etc.. these will help making the online execution unit \texttt{Turing Complete}. \\\\
+	The user will write code in the shell unit and will convert it into a function which in turn will be converted into a function block that will be called when connected to another function block. The user will be able to himself control the flow of the code and see it in real time both simultaneously.
+  		\\\\
+  		Moreover the user can print his plan directly in the form of PDF document that can be presented to other people. 
+  		
+  		\subsection{Online Shell(s)}
+  		\subsubsection{\texttt{Python Shell}}
+  		\blindtext
+  		\subsubsection{\texttt{C/C++ Shell}}
+  		\blindtext
+  		\newpage
+=======
+  		\subsection{The Code-Board}
+  		%It will provide the user with a \texttt{GUI} in which he will be able to see all the functions he has created and will be able to connect them in any way possible. The functions will then be executed in the manner the user connected them and eventually the program will execute.
+  		%\\\\
+  		%Apart from this the user will be provided with some functionalities that can be implemented directly using the the menu in the \textbf{Drawboard} like \texttt{Loops, GoTo and Conditionals} these will help making the online execution unit \texttt{Turing Complete}. \\\\
+	%The user will write code in the shell unit and will convert it into a function which in turn will be converted into a function block that will be called when connected to another function block. The user will be able to himself control the flow of the code and see it in real time both simultaneously.
+  		%\\\\
+  		%Moreover the user can print his plan directly in the form of PDF document that can be presented to other people. 
+  		This will function as \textit{graphical pseudo-code} for developers. It will add another dimension to the understanding of algorithms which in will make it easier to see the data and control flow of the algorithm.\\The drawing box will not just be a white screen with pen support rather it will properly replicate advanced programming paradigms like \textit{functional programming} apart from mere procedural coding by enabling \textit{loops, conditionals and Gotos}, making board sort of \textbf{Turing Complete} and will also try to capture essence of abstraction making it useful to get actual work done.\\One can directly draw their ideas on the board which later  could be converted to the Python code or once Python functions(not classes) could be drawn on the board. 
+  		
+  		\subsection{Online Shell(s)}
+  		\subsubsection{\texttt{Python Shell}}
+  		It will work as just any Python shell providing a quick way to put test your ideas but integration with the code-board makes it special. I will just be a standard Python shell that ships with c-Python but its parser will be different. 
+  		\subsubsection{\texttt{C/C++ Shell$^{*}$}}
+  		Many students in our institute have studied C/C++ as their first programming language and their familiarity with C/C++ is much higher than with higher level languages like Python. This shell will try to replicate the benefits of Python shell in the C/C++ shell. This shell will provide a quick and way for anyone to just not think about the clutter(yes! you do not need to write the boilerplate) and get started.\\For this shell we will have to abandon standard  ahead of time \emph{gcc/clang} compilers rather use \emph{JIT compiler$^{**}$}. The list of keywords will be much higher than in the standard counterpart of C.\\Upon Completion it will also be possible to see the graphical version of your idea onto the board which later could be downloaded and shared.
+  		\begin{footnotesize}
+  		\begin{flushright}
+  		\textit{$^{*}$ If time permits.\\}
+  		$^{**}$ \href{https://github.com/vnmakarov/mir}{Just In Time Compiler for C}
+  		\end{flushright}
+  		\end{footnotesize}
+		\hline
+>>>>>>> Stashed changes
+  		\section{Technologies Used}
+  		\begin{itemize}
+  		\item \textbf{HTML,CSS,JS}\\
+  		To create the webpage and making it responsive.
+  		\item \textbf{Node.js}\\
+  		This acts as the backend server of our Web Application.
+  		\item \textbf{Express}\\
+  		This is the framework being used with our backend server.
+  		\item \textbf{GitHub}\\
+  		This is serving two purposes in the project
+  		\begin{enumerate}
+  		\item For the Developers, it is being used for the collaborative work and a version control of our project.
+  		\item For the User, it acts as the database to store their shell commands that they give in the form of \textbf{Gists}. 
+  		\end{enumerate}
+  		\item \textbf{Python}\\
+  		This is being used as the primary shell languages that the user can work with.
+  		\item \textbf{C/C++}\textit{(if time permits.)}\\
+  		These are being used as another shell language(s) that the user can work with. 
+  		\item \textbf{MongoDB}\\
+  		This is our primary database that will hold the user login credentials into the shell in-order to avoid logging in into GitHub each time the user opens the shell.
+  		\end{itemize}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
