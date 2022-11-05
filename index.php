@@ -1,5 +1,4 @@
 <?php 
-session_start();
 // Include configuration file 
 require_once 'config.php'; 
  
@@ -10,6 +9,9 @@ $user = new User();
 if(isset($accessToken)){ 
     // Get the user profile data from Github 
     $gitUser = $gitClient->getAuthenticatedUser($accessToken); 
+     
+    if(!empty($gitUser)){ 
+        // Getting user profile details 
         $gitUserData = array(); 
         $gitUserData['oauth_uid'] = !empty($gitUser->id)?$gitUser->id:''; 
         $gitUserData['name'] = !empty($gitUser->name)?$gitUser->name:''; 
@@ -18,15 +20,40 @@ if(isset($accessToken)){
         $gitUserData['location'] = !empty($gitUser->location)?$gitUser->location:''; 
         $gitUserData['picture'] = !empty($gitUser->avatar_url)?$gitUser->avatar_url:''; 
         $gitUserData['link'] = !empty($gitUser->html_url)?$gitUser->html_url:''; 
+         
+        // Insert or update user data to the database 
         $gitUserData['oauth_provider'] = 'github'; 
-        $userData = $user->checkUser($gitUserData);  
-        $_SESSION['userData'] = $gitUserData; 
+        $userData = $user->checkUser($gitUserData); 
+ 
+        // Storing user data in the session 
+        $_SESSION['userData'] = $userData; 
+ 
+        // Render Github profile data 
+        $output     = '<h2>GitHub Account Details</h2>'; 
+        $output .= '<div class="ac-data">'; 
+        $output .= '<img src="'.$userData['picture'].'">'; 
+        $output .= '<p><b>ID:</b> '.$userData['oauth_uid'].'</p>'; 
+        $output .= '<p><b>Name:</b> '.$userData['name'].'</p>'; 
+        $output .= '<p><b>Login Username:</b> '.$userData['username'].'</p>'; 
+        $output .= '<p><b>Email:</b> '.$userData['email'].'</p>'; 
+        $output .= '<p><b>Location:</b> '.$userData['location'].'</p>'; 
+        $output .= '<p><b>Profile Link:</b> <a href="'.$userData['link'].'" target="_blank">Click to visit GitHub page</a></p>'; 
+        $output .= '<p>Logout from <a href="logout.php">GitHub</a></p>'; 
+        $output .= '</div>'; 
+    }else{ 
+        $output = '<h3 style="color:red">Something went wrong, please try again!</h3>'; 
+    }  
 }elseif(isset($_GET['code'])){ 
+    // Verify the state matches the stored state 
     if(!$_GET['state'] || $_SESSION['state'] != $_GET['state']) { 
         header("Location: ".$_SERVER['PHP_SELF']); 
     } 
+     
+    // Exchange the auth code for a token 
     $accessToken = $gitClient->getAccessToken($_GET['state'], $_GET['code']); 
-    $_SESSION['access_token'] = $accessToken;    
+   
+    $_SESSION['access_token'] = $accessToken; 
+   
     header('Location: ./'); 
 }else{ 
     // Generate a random hash and store in the session for security 
@@ -39,31 +66,11 @@ if(isset($accessToken)){
     $authUrl = $gitClient->getAuthorizeURL($_SESSION['state']); 
      
     // Render Github login button 
-    echo "<a href=".$authUrl.">Login</a>";
+    $output = '<a href="'.htmlspecialchars($authUrl).'"><img src="images/github-login.png"></a>'; 
 } 
 ?>
 
-
-<!-- <head>
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <title>Python Shell</title>
-      </head>
-  <body>
-    <a href="">
-      <section>
-        <div class="content">
-          <h1>LOGIN</h1>
-          <h1>LOGIN</h1>
-        </div>
-      </section>
-    </a>
-  </body> -->
-
+<div class="container">
+    <!-- Display login button / GitHub profile information -->
+    <?php echo $output; ?>
+</div>
