@@ -43,13 +43,13 @@
             $existingGist .= $filename->filename;
             $existingGist.= '<br>';
             $codestr = htmlspecialchars(file_get_contents($filename->raw_url));
-            $codestr = substr($codestr,0,100);
+            $codestr = substr($codestr,0,250);
             $existingGist.= '<pre>'.$codestr.'</pre><a href="'.$filename->raw_url.'">...</a><br>';
         }
         $existingGist.= '<hr>';
         $completeFile.=$existingGist;
     }
-    // echo  $_SESSION['access_token'];
+    echo  $_SESSION['access_token'];
 ?>
 <body>
     <?php echo $completeFile;?>
