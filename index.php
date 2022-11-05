@@ -26,7 +26,7 @@ if(isset($accessToken)){
         $gitUserData['oauth_provider'] = 'github'; 
         $userData = $user->checkUser($gitUserData); 
  
-        // Storing user data in the session 
+        // Storing user data    in the session 
         $_SESSION['userData'] = $userData; 
  
         // Render Github profile data 
@@ -70,7 +70,7 @@ if(isset($accessToken)){
     $authUrl = $gitClient->getAuthorizeURL($_SESSION['state']); 
      
     // Render Github login button 
-    $output = '<a href="'.htmlspecialchars($authUrl).'">Login</a>'; 
+    $output = '<a href="'.htmlspecialchars($authUrl).'">Hello</a>'; 
 } 
 ?>
 
