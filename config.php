@@ -9,7 +9,7 @@ define('DB_USER_TBL', 'users');
 // GitHub API configuration 
 define('CLIENT_ID', '950c5b31e14fc568c4d8'); 
 define('CLIENT_SECRET', '597430d73e8e843d146492b553dfd0d5f0ea25ba'); 
-define('REDIRECT_URL', 'http://localhost/sslproj/shell.php'); 
+define('REDIRECT_URL', 'http://localhost/sslproj/index.php'); 
  
 // Start session 
 if(!session_id()){ 

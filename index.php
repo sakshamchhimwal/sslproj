@@ -1,4 +1,5 @@
 <?php 
+session_start();
 // Include configuration file 
 require_once 'config.php'; 
  
@@ -29,7 +30,7 @@ if(isset($accessToken)){
         $_SESSION['userData'] = $userData; 
  
         // Render Github profile data 
-        $output     = '<h2>GitHub Account Details</h2>'; 
+        $output  = '<h2>GitHub Account Details</h2>'; 
         $output .= '<div class="ac-data">'; 
         $output .= '<img src="'.$userData['picture'].'">'; 
         $output .= '<p><b>ID:</b> '.$userData['oauth_uid'].'</p>'; 
@@ -38,10 +39,13 @@ if(isset($accessToken)){
         $output .= '<p><b>Email:</b> '.$userData['email'].'</p>'; 
         $output .= '<p><b>Location:</b> '.$userData['location'].'</p>'; 
         $output .= '<p><b>Profile Link:</b> <a href="'.$userData['link'].'" target="_blank">Click to visit GitHub page</a></p>'; 
+        $output .= '<p>Proceed to Shell <a href="shell.php">Shell</a></p>'; 
         $output .= '<p>Logout from <a href="logout.php">GitHub</a></p>'; 
         $output .= '</div>'; 
+        $_SESSION['output'] = $output;
     }else{ 
         $output = '<h3 style="color:red">Something went wrong, please try again!</h3>'; 
+        $_SESSION['output'] = $output;
     }  
 }elseif(isset($_GET['code'])){ 
     // Verify the state matches the stored state 
@@ -66,7 +70,7 @@ if(isset($accessToken)){
     $authUrl = $gitClient->getAuthorizeURL($_SESSION['state']); 
      
     // Render Github login button 
-    $output = '<a href="'.htmlspecialchars($authUrl).'"><img src="images/github-login.png"></a>'; 
+    $output = '<a href="'.htmlspecialchars($authUrl).'">Login</a>'; 
 } 
 ?>
 

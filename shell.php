@@ -1,5 +1,5 @@
 <?php
     session_start();
-    $uData=$_SESSION['userData'];
-    echo $uData['name'];
+    $uData=$_SESSION['output'];
+    echo $uData;
 ?>
