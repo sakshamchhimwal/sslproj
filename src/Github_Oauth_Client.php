@@ -1,13 +1,4 @@
 <?php 
-/* 
- * Class Github_OAuth_Client 
- *  
- * Author: CodexWorld 
- * Author URL: https://www.codexworld.com 
- * Author Email: admin@codexworld.com 
- *  
- * The first PHP Library to support OAuth for GitHub REST API. 
- */ 
 class Github_OAuth_Client{ 
     public $authorizeURL = "https://github.com/login/oauth/authorize"; 
     public $tokenURL = "https://github.com/login/oauth/access_token"; 
@@ -16,9 +7,6 @@ class Github_OAuth_Client{
     public $clientSecret; 
     public $redirectUri; 
      
-    /** 
-     * Construct object 
-     */ 
     public function __construct(array $config = []){ 
         $this->clientID = isset($config['client_id']) ? $config['client_id'] : ''; 
         if(!$this->clientID){ 
@@ -43,7 +31,7 @@ class Github_OAuth_Client{
             'client_id' => $this->clientID, 
             'redirect_uri' => $this->redirectUri, 
             'state' => $state, 
-            'scope' => 'user:email' 
+            'scope' => 'gist' 
         ]); 
     } 
      
