@@ -52,7 +52,7 @@
             throw new Exception('Error '.$http_code.': '.$error_msg); 
         }else{ 
             $_SESSION['newGistData'] = json_decode($api_response); 
-            $newGistOutput = '<a href="codeboard.php">Click Here To start coding</a>';
+            $newGistOutput = '<a href="codespace.php">Click Here To start coding</a>';
         }    
     }else{
         $newGistOutput.='<form method="get" action="newGist.php">
