@@ -188,6 +188,25 @@ section .title::after{
 .btn2:hover{
     color: white;
 }
+.shellxx {
+    border: 2px solid crimson;
+    border-radius: 7px;
+    width: 600px;
+    padding: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: white;
+    background: rgb(25, 24, 24);
+    border-radius: 2px solid crimson;
+}
+.shellxx:hover{
+    background:crimson;
+    transition: all 0.3s ease;
+    transform: scale(1.05);
+}
+.read{
+    color:blue;
+}
 </style>
 <body>
 <nav class="navbar">
@@ -224,23 +243,33 @@ section .title::after{
             return json_decode($api_response); 
         } 
     }
-    $completeFile="";
+    $completeFile="<div class='wrapper' style='
+    display: grid;
+    grid-template-columns: auto;
+    row-gap: 20px;
+    justify-content: center;
+    justify-items: start;
+    background: black;
+'>";
     $i=0;
     foreach(getAllGists() as $gist){
-        $existingGist="";
         foreach($gist->files as $filename){
+            
+            $existingGist='<div class="shellxx">';
             $i++;
-            $existingGist.=$i.')';
-            $existingGist .= $filename->filename;
-            $existingGist.= '<br>';
+            // $existingGist.=$i.')';//idhar laga
+            $existingGist .= '<h3>'.$filename->filename.'</h3><br>';
+            $existingGist.= '<br>';//idhar laga
             $codestr = htmlspecialchars(file_get_contents($filename->raw_url));
             $codestr = substr($codestr,0,250);
-            $existingGist.= '<pre>'.$codestr.'</pre><a href="'.$filename->raw_url.'">...</a><br>';
+            $existingGist.= '<pre>'.$codestr.'</pre><a href="'.$filename->raw_url.'"><div class="read">...</div></a><br>';//idhar laga
+            $existingGist.="</div>";
         }
-        $existingGist.= '<hr>';
-        $completeFile.=$existingGist;
+        // $existingGist.= '<hr>';//idhar laga
+        $completeFile.=$existingGist;//idhar laga
     }
-    echo  $_SESSION['access_token'];
+    $completeFile.="</div>";
+    // echo  $_SESSION['access_token'];
 ?>
             <?php echo $completeFile;?>
     <a href="newGist.php" class="btn1">Create A New Gist</a>
@@ -262,7 +291,7 @@ section .title::after{
         }else{
             $('.scroll-up-btn').removeClass("show");
         }
-    });
+    })});
 </body>
 </script>
 </html>
