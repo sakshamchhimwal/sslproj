@@ -49,7 +49,7 @@
         $existingGist.= '<hr>';
         $completeFile.=$existingGist;
     }
-    echo  $_SESSION['access_token'];
+    // echo  $_SESSION['access_token'];
 ?>
 <body>
     <?php echo $completeFile;?>
