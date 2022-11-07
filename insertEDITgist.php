@@ -29,8 +29,10 @@
             // echo 'Error:' . curl_error($ch);
             echo $http_code;
         }else{
-            // print_r($postField);
-            print_r(json_decode($result));
+            // // print_r($postField);
+            // print_r(json_decode($result));
+                        header("Location:shell.php");
+
         }
     curl_close($ch);
     

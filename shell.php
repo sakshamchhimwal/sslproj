@@ -258,6 +258,7 @@ section .title::after{
 '>";
     $i=0;
     foreach(getAllGists() as $gist){
+        $existingGist="";
         foreach($gist->files as $filename){
             
             $existingGist='<div class="shellxx">';
@@ -270,8 +271,7 @@ section .title::after{
             $existingGist.= '<pre>'.$codestr.'</pre><a href="'.$filename->raw_url.'"><div class="read">...</div></a><br>';//idhar laga
             $existingGist.="</div>";
         }
-        // $existingGist.= '<hr>';//idhar laga
-        $completeFile.=$existingGist;//idhar laga
+        $completeFile.=$existingGist;
     }
     $completeFile.="</div>";
     // echo  $_SESSION['access_token'];
@@ -279,6 +279,7 @@ section .title::after{
             <?php echo $completeFile;?>
     <a href="newGist.php" class="btn1">Create A New Gist</a>
     <a href="listEditGist.php" class="btn2">Add To Existing Gist</a>
+    <a href="deleteListGist.php">Delete A Gist</a>
 
 <script>
        $(document).ready(function(){

@@ -10,12 +10,12 @@
     <title>CodeSpace</title>
 </head>
 <script type="text/javascript">
-    function makeCooki(){
-        let code = document.getElementById("code")['value'];
-        code = code.split("\n").join("\\join");
-        document.cookie = "xcode = "+code;
-        console.log(document.cookie);
-    }
+function makeCooki() {
+    let code = document.getElementById("code")['value'];
+    code = code.split("\n").join("\\join");
+    document.cookie = "xcode = " + code;
+    console.log(document.cookie);
+}
 </script>
 <style>
           @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
@@ -183,6 +183,7 @@ section .title::after{
         font-size:20px">'.$code.'</textarea></pre>';
     }
 ?>
+
 <body>
 <nav class="navbar">
         <div class="max-width">
@@ -208,11 +209,13 @@ section .title::after{
 
 </body>
 <script type="text/javascript">
-    document.addEventListener("keydown",keyPressed);
-    function keyPressed(e){
-        if(e["key"]==="Enter"){
+document.addEventListener("keydown", keyPressed);
+
+function keyPressed(e) {
+    if (e["key"] === "Enter") {
         makeCooki();
     }
-    }
+}
 </script>
+
 </html>
