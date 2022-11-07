@@ -1,19 +1,18 @@
 
 <?php 
 session_start();
-?>
-<?php
+
 // Include configuration file 
 require_once 'config.php'; 
  
 // Include and initialize user class 
 require_once 'User.class.php'; 
 $user = new User(); 
- 
+$output="";
 if(isset($accessToken)){ 
+    
     // Get the user profile data from Github 
     $gitUser = $gitClient->getAuthenticatedUser($accessToken); 
-     
     if(!empty($gitUser)){ 
         // Getting user profile details 
         $gitUserData = array(); 
@@ -34,18 +33,18 @@ if(isset($accessToken)){
  
         // Render Github profile data 
 
-        $output  = '<div class="total"><div class="Heading"><h2><h1 class="git">GitHub</h1> <h2 class="git2">Account Details</h2></h2></div>'; 
-        $output .= '<div class="ac-data">'; 
-        $output .= '<div class="wrapperxx"><div class="img1"><img src="'.$userData['picture'].'" height=200 width=200 class="profileimg" ></div><div  class="containerxx">'; 
-        $output .= '<div class="box"><p><b>ID:</b> '.$userData['oauth_uid'].'</p></div>'; 
-        $output .= '<div class="box"><p><b>Name:</b> '.$userData['name'].'</p></div>'; 
-        $output .= '<div class="box"><p><b>Login Username:</b> '.$userData['username'].'</p></div>'; 
-        $output .= '<div class="box"><p><b>Email:</b> '.$userData['email'].'</p></div>'; 
-        $output .= '<div class="box"><p><b>Location:</b> '.$userData['location'].'</p></div></div></div>'; 
-        $output .= '<div class="Shellstyle"><p><b>Profile Link:</b><button class="bottombtn"> <a href="'.$userData['link'].'" target="_blank">Click to visit</a></p></div>'; 
-        $output .= '<div class="Shellstyle"><p>Proceed to Shell <button class="bottombtn"><a href="shell.php">Shell</a></p></button></div>'; 
-        $output .= '<div class="Shellstyle"><p>Logout from Github<button class="bottombtn"> <a href="logout.php">LogOut</a></p></button></div></div>'; 
-        $output .= '</div><div class="last-container">
+        $GLOBALS['output'] .= '<div class="total"><div class="Heading"><h2><h1 class="git">GitHub</h1> <h2 class="git2">Account Details</h2></h2></div>'; 
+        $GLOBALS['output'] .= '<div class="ac-data">'; 
+        $GLOBALS['output'] .= '<div class="wrapperxx"><div class="img1"><img src="'.$userData['picture'].'" height=200 width=200 class="profileimg" ></div><div  class="containerxx">'; 
+        $GLOBALS['output'] .= '<div class="box"><p><b>ID:</b> '.$userData['oauth_uid'].'</p></div>'; 
+        $GLOBALS['output'] .= '<div class="box"><p><b>Name:</b> '.$userData['name'].'</p></div>'; 
+        $GLOBALS['output'] .= '<div class="box"><p><b>Login Username:</b> '.$userData['username'].'</p></div>'; 
+        $GLOBALS['output'] .= '<div class="box"><p><b>Email:</b> '.$userData['email'].'</p></div>'; 
+        $GLOBALS['output'] .= '<div class="box"><p><b>Location:</b> '.$userData['location'].'</p></div></div></div>'; 
+        $GLOBALS['output'] .= '<div class="Shellstyle"><p><b>Profile Link:</b><button class="bottombtn"> <a href="'.$userData['link'].'" target="_blank">Click to visit</a></p></div>'; 
+        $GLOBALS['output'] .= '<div class="Shellstyle"><p>Proceed to Shell <button class="bottombtn"><a href="shell.php">Shell</a></p></button></div>'; 
+        $GLOBALS['output'] .= '<div class="Shellstyle"><p>Logout from Github<button class="bottombtn"> <a href="logout.php">LogOut</a></p></button></div></div>'; 
+        $GLOBALS['output'] .= '</div><div class="last-container">
         <ul>
             <li><a href="https://instagram.com/festeve360?igshid=YmMyMTA2M2Y=" target="_blank"><i
                         class="fa-brands fa-instagram all-icons"></i></a></li>
@@ -57,10 +56,14 @@ if(isset($accessToken)){
             Copyright &copy;www.CodeSpace.com. All rights reserved
         </footer>
     </div>'; 
-        $_SESSION['output'] = $output;
+        $_SESSION['output'] = $GLOBALS['output'];
+        if(!isset($_SESSION['mySession'])){
+            header('Refresh:0.1');
+            $_SESSION['mySession']=false;
+        }
     }else{ 
-        $output = '<h3 style="color:crimson">Something went wrong, please try again!</h3>'; 
-        $_SESSION['output'] = $output;
+        $GLOBALS['output'] = '<h3 style="color:crimson">Something went wrong, please try again!</h3>'; 
+        $_SESSION['output'] = $GLOBALS['output'];
     }  
 }elseif(isset($_GET['code'])){ 
     // Verify the state matches the stored state 
@@ -86,8 +89,11 @@ if(isset($accessToken)){
      
     // Render Github login button 
 
-    $output = '<a href="'.htmlspecialchars($authUrl).'"><div class="loginGit">Login</div></a>'; 
+    $GLOBALS['output'] = '<a href="'.htmlspecialchars($authUrl).'"><div class="loginGit">Login</div></a>'; 
 } 
+function getOutput(){
+    return $GLOBALS['output'];
+}
 ?>
 <html>
     <head>
@@ -459,7 +465,7 @@ footer {
     </section>
     <div>
     <!-- Display login button / GitHub profile information -->
-    <?php echo $output; ?>
+    <?php echo getOutput(); ?>
     </div>
     
 </body>

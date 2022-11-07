@@ -26,7 +26,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none;
+    text-decoration: none;   
+
 }
 html{
     scroll-behavior: smooth;
@@ -190,6 +191,7 @@ section .title::after{
 }
 .shellxx {
     border: 2px solid crimson;
+    font-family: 'Ubuntu', sans-serif;
     border-radius: 7px;
     width: 600px;
     padding: 25px;
@@ -207,11 +209,14 @@ section .title::after{
 .read{
     color:blue;
 }
+.contentxx{
+    background:rgb(25, 24, 24);
+}
 </style>
 <body>
 <nav class="navbar">
         <div class="max-width">
-            <div class="logo"><a href="#">She<span>ll</span></a></div>
+            <div class="logo"><a href="#">Gis<span>ts</span></a></div>
 
             <div class="menu-btn">
                 <i class="fas fa-bars"></i>
