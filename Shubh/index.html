@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HIGHLIGHT JS</title>
+        <style type="text/css">
+            
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #282a36;
+}
+
+.hljs-built_in,
+.hljs-selector-tag,
+.hljs-section,
+.hljs-link {
+  color: #8be9fd;
+}
+
+.hljs-keyword {
+  color: #ff79c6;
+}
+
+.hljs,
+.hljs-subst {
+  color: #f8f8f2;
+}
+
+.hljs-title,
+.hljs-attr,
+.hljs-meta-keyword {
+  font-style: italic;
+  color: #50fa7b;
+}
+
+.hljs-string,
+.hljs-meta,
+.hljs-name,
+.hljs-type,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #f1fa8c;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion {
+  color: #6272a4;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-title,
+.hljs-section,
+.hljs-doctag,
+.hljs-type,
+.hljs-name,
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-literal,
+.hljs-number {
+  color: #bd93f9;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+        </style>
+    </head>
+    <body>
+        <script src="highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+        <div class="code">
+            <button onclick="copyText_()">Copy</button>
+            <br/>
+            <!-- Add a tob bar to the code box and tapping the copy button will copy the text-->
+            <pre>
+                <code class="language-python" id="codeBox__">  
+        def foo(i : int) -> int:
+            if(i <= 1) return 1
+            else return i*foo(i-1)
+                </code>
+            </pre>
+        </div>
+        <script>
+            ele = document.getElementById("codeBox__").textContent;
+            function copyText_() {
+                navigator.clipboard.writeText(ele);
+            }
+        </script>
+    </body>
+</html>
+
