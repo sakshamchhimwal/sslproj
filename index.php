@@ -33,17 +33,51 @@ if(isset($accessToken)){
  
         // Render Github profile data 
 
-        $GLOBALS['output'] .= '<div class="total"><div class="Heading"><h2><h1 class="git">GitHub</h1> <h2 class="git2">Account Details</h2></h2></div>'; 
+        $GLOBALS['output'] .= '<div class="total"
+        style=" background : rgb(27,27,27);"><div class="Heading"><h2><h1 class="git">GitHub</h1> <h2 class="git2">Account Details</h2></h2></div>'; 
         $GLOBALS['output'] .= '<div class="ac-data">'; 
-        $GLOBALS['output'] .= '<div class="wrapperxx"><div class="img1"><img src="'.$userData['picture'].'" height=200 width=200 class="profileimg" ></div><div  class="containerxx">'; 
+        $GLOBALS['output'] .= '<div class="wrapperxx"><div class="img1" style="    margin-right: 10%;
+        border: 2px solid crimson;
+        border-radius: 100%;"><img src="'.$userData['picture'].'" height=200 width=200 class="profileimg" ></div><div  class="containerxx"
+        style="    border: 2px solid crimson;
+        width: 35%;
+        margin: 50px;
+        border-radius: 7px;
+        height: 50%;
+        color:white;
+        padding:10px;
+        padding-bottom:30px;
+        background: rgb(25, 24, 24);
+        font-size: 25px;">'; 
         $GLOBALS['output'] .= '<div class="box"><p><b>ID:</b> '.$userData['oauth_uid'].'</p></div>'; 
         $GLOBALS['output'] .= '<div class="box"><p><b>Name:</b> '.$userData['name'].'</p></div>'; 
         $GLOBALS['output'] .= '<div class="box"><p><b>Login Username:</b> '.$userData['username'].'</p></div>'; 
         $GLOBALS['output'] .= '<div class="box"><p><b>Email:</b> '.$userData['email'].'</p></div>'; 
         $GLOBALS['output'] .= '<div class="box"><p><b>Location:</b> '.$userData['location'].'</p></div></div></div>'; 
-        $GLOBALS['output'] .= '<div class="Shellstyle"><p><b>Profile Link:</b><button class="bottombtn"> <a href="'.$userData['link'].'" target="_blank">Click to visit</a></p></div>'; 
-        $GLOBALS['output'] .= '<div class="Shellstyle"><p>Proceed to Shell <button class="bottombtn"><a href="shell.php">Shell</a></p></button></div>'; 
-        $GLOBALS['output'] .= '<div class="Shellstyle"><p>Logout from Github<button class="bottombtn"> <a href="logout.php">LogOut</a></p></button></div></div>'; 
+        $GLOBALS['output'] .= '<div class="Shellstyle"><p><b>Profile Link:</b><button class="bottombtn" style="    margin: 3px;
+        padding: 3px;
+        border: 2px solid crimson;
+        color: white;
+        text-decoration: none;
+        background: crimson;
+        border-radius: 7px;
+        margin-left: 10px;"> <a href="'.$userData['link'].'" target="_blank">Click to visit</a></p></div>'; 
+        $GLOBALS['output'] .= '<div class="Shellstyle"><p>Proceed to Shell <button class="bottombtn" style="    margin: 3px;
+        padding: 3px;
+        border: 2px solid crimson;
+        color: white;
+        text-decoration: none;
+        background: crimson;
+        border-radius: 7px;
+        margin-left: 10px;"><a href="shell.php">Shell</a></p></button></div>'; 
+        $GLOBALS['output'] .= '<div class="Shellstyle"><p>Logout from Github<button class="bottombtn" style="    margin: 3px;
+        padding: 3px;
+        border: 2px solid crimson;
+        color: white;
+        text-decoration: none;
+        background: crimson;
+        border-radius: 7px;
+        margin-left: 10px;"> <a href="logout.php">LogOut</a></p></button></div></div>'; 
         $GLOBALS['output'] .= '</div><div class="last-container">
         <ul>
             <li><a href="https://instagram.com/festeve360?igshid=YmMyMTA2M2Y=" target="_blank"><i
@@ -57,10 +91,6 @@ if(isset($accessToken)){
         </footer>
     </div>'; 
         $_SESSION['output'] = $GLOBALS['output'];
-        if(!isset($_SESSION['mySession'])){
-            header('Refresh:0.1');
-            $_SESSION['mySession']=false;
-        }
     }else{ 
         $GLOBALS['output'] = '<h3 style="color:crimson">Something went wrong, please try again!</h3>'; 
         $_SESSION['output'] = $GLOBALS['output'];
@@ -73,7 +103,7 @@ if(isset($accessToken)){
      
     // Exchange the auth code for a token 
     $accessToken = $gitClient->getAccessToken($_GET['state'], $_GET['code']); 
-   
+    header("Location: ".$_SERVER['PHP_SELF']); 
     $_SESSION['access_token'] = $accessToken; 
    
     // header('Location: ./'); 
@@ -345,7 +375,7 @@ section .title::after{
 
 }
 .Shellstyle{
-    color: crimson;
+    color: white;
     text-align: center;
     margin-top: 5px;
     font-weight:100;
@@ -362,7 +392,6 @@ section .title::after{
     color: crimson;
 }
 .img1{
-    margin-left: 10%;
     border-radius: 10%;
 }
 
@@ -380,12 +409,6 @@ section .title::after{
     margin-left: auto;
     justify-content: center;
 }
-.containerxx{
-    width:550px;
-    color: crimson;
-    font-size: 20px;
-
-}
 .total{
     /* background-color: rgb(205, 212, 219); */
     background: url("images/banner2.jpg") no-repeat center;
@@ -399,7 +422,7 @@ footer {
 }
 
 .last-container {
-    background-color: rgb(27, 27, 27);
+    background-color: black;
 
 }
 
@@ -500,12 +523,6 @@ footer {
         strings: ["Convert Ideas To Reality","Test Your Thoughts"],
         typeSpeed: 100,
         backSpeed: 62,
-        loop: true
-    });
-    var typed = new Typed(".typing2", {
-        strings: ["And Start Your Journey"],
-        typeSpeed: 100,
-        backSpeed: 73,
         loop: true
     });
 
