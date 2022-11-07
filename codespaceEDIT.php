@@ -3,6 +3,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,12 +11,12 @@
     <title>CodeSpace</title>
 </head>
 <script type="text/javascript">
-    function makeCooki(){
-        let code = document.getElementById("code")['value'];
-        code = code.split("\n").join("\\join");
-        document.cookie = "xcode = "+code;
-        console.log(document.cookie);
-    }
+function makeCooki() {
+    let code = document.getElementById("code")['value'];
+    code = code.split("\n").join("\\join");
+    document.cookie = "xcode = " + code;
+    console.log(document.cookie);
+}
 </script>
 <?php
     if (isset($_GET['gistSelect'])) {
@@ -38,18 +39,21 @@
         $code = '<pre><textarea rows=40 cols=100 name="editCode" id="code">'.$code.'</textarea></pre>';
     }
 ?>
+
 <body>
     <form method="get" action="insertEDITgist.php">
-    <?php echo $code;?>
-    <button type="submit" onClick=makeCooki()>UPDATE</button>
-    <form>
+        <?php echo $code;?>
+        <button type="submit" onClick=makeCooki()>UPDATE</button>
+        <form>
 </body>
 <script type="text/javascript">
-    document.addEventListener("keydown",keyPressed);
-    function keyPressed(e){
-        if(e["key"]==="Enter"){
+document.addEventListener("keydown", keyPressed);
+
+function keyPressed(e) {
+    if (e["key"] === "Enter") {
         makeCooki();
     }
-    }
+}
 </script>
+
 </html>

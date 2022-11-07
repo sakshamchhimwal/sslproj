@@ -3,6 +3,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,27 +34,28 @@
             return json_decode($api_response); 
         } 
     }
-    $completeFile="";
-    $i=0;
+    $completeFile="<select name='gistSelect'>";
     foreach(getAllGists() as $gist){
-        $existingGist="These Are in Same Gist<br>";
+        $link =explode('/',$gist->url);
+        $link = end($link);
+        $i = 1;
         foreach($gist->files as $filename){
+            $existingGist='<option>';
+            $existingGist .= $link.'/'.$filename->filename.'/'.$i;
+            $existingGist.= '</option>';
+            $completeFile.=$existingGist;
             $i++;
-            $existingGist.=$i.')';
-            $existingGist .= $filename->filename;
-            $existingGist.= '<br>';
-            $codestr = htmlspecialchars(file_get_contents($filename->raw_url));
-            $codestr = substr($codestr,0,250);
-            $existingGist.= '<pre>'.$codestr.'</pre><a href="'.$filename->raw_url.'">...</a><br>';
         }
-        $completeFile.=$existingGist.'<hr>';
     }
-    // echo  $_SESSION['access_token'];
+    $completeFile.='</select>';
+    $_SESSION['isEdit']='true';
 ?>
+
 <body>
-    <?php echo $completeFile;?>
-    <a href="newGist.php">Create A New Gist</a>
-    <a href="listEditGist.php">Add To Existing Gist</a>
-    <a href="deleteListGist.php">Delete A Gist</a>
+    <form method='get' action='deleteGist.php'>
+        <?php echo $completeFile;?>
+        <button type="submit">Delete</submit>
+    </form>
 </body>
+
 </html>
