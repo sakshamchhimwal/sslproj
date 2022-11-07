@@ -1,10 +1,8 @@
 document.addEventListener("keydown", keyPressed);
-async function callPyodide(code) {
-  let pyodide = await loadPyodide();
-  console.log(pyodide.runPython(code));
-}
 function keyPressed(e) {
   if (e["key"] === "Enter") {
-    code = document.getElementById("inputArea")["value"];
+    let code = document.getElementById("inputArea")["value"];
+    code = code.split("\n").join("\\");
+    console.log(code);
   }
 }

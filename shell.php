@@ -278,7 +278,7 @@ section .title::after{
 ?>
             <?php echo $completeFile;?>
     <a href="newGist.php" class="btn1">Create A New Gist</a>
-    <a href="addToGist.php" class="btn2">Add To Existing Gist</a>
+    <a href="listEditGist.php" class="btn2">Add To Existing Gist</a>
 
 <script>
        $(document).ready(function(){

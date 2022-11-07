@@ -3,10 +3,10 @@
     $accToken = $_SESSION['access_token'];
     $gistLink = explode('/',$_SESSION['newGistData']->url);
     $gistId=end($gistLink);
-    if(isset($accToken)){
-        $code = explode(' ',$_POST['code']);
-        print_r($code);
-        $postField  ='{"description":"'.$_SESSION['gistDetails']['desc'].'","files":{"'.$_SESSION['gistDetails']['fname'].'":{"content":"check"}}}';
+    if(isset($accToken) && isset($_COOKIE['xcode'])){
+        $code = $_COOKIE['xcode'];
+        $code = str_replace("&quot;",'\"',str_replace("&#039;",'\'',htmlspecialchars(str_replace('\\join','\r\n',$code))));
+        $postField  ='{"description":"'.$_SESSION['gistDetails']['desc'].'","files":{"'.$_SESSION['gistDetails']['fname'].'":{"content":"'.$code.'"}}}';
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, 'https://api.github.com/gists/'.$gistId);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -22,17 +22,33 @@
         $result = curl_exec($ch);
         $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         if ($http_code!=200) {
-            // echo $accToken;
-            // echo '<br>';
-            // echo $gistId;
-            // echo '<br>';
-            
-            // echo 'Error:' . curl_error($ch);
-            // echo $http_code;
+            echo $accToken;
+            echo '<br>';
+            echo $gistId;
+            echo '<br>';
+            echo $postField;
+            echo '<br>';
+            echo 'Error:' . curl_error($ch);
+            echo $http_code;
         }else{
-            // echo $postField;
+            print_r($postField);
             // print_r(json_decode($result));
         }
         curl_close($ch);
     }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    console.log(document.cookie);
+</script>
+</html>

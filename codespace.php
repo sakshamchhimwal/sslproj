@@ -10,6 +10,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeSpace</title>
+    <script>
+      function makeCooki(){
+    let code = document.getElementById("inputArea")["value"];
+    code = code.split("\n").join("\\join");
+    document.cookie = "xcode = "+code;
+    console.log(document.cookie);}
+
+  </script>
 </head>
 <style>
           @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
@@ -176,7 +184,7 @@ section .title::after{
     border: 2px solid crimson;
     border-radius: 6px;
     width: 25%;
-    font-size: 20px;">Save As Gist</button>
+    font-size: 20px;" id="subbut" onClick=makeCooki()>Save As Gist</button>
       <pre>
         <div class="outputBox">
         </div>
@@ -200,31 +208,14 @@ section .title::after{
             $('.scroll-up-btn').removeClass("show");
         }
     })})
-  
-// Creating a cookie after the document is ready
-let x=doucment.getElementById("inputArea").innerHTML;
-x=x.split('\n');
-console.log((x));
-$(document).ready(function () {
-    createCookie("gfg", "GeeksforGeeks", "10");
-});
-   
-// Function to create the cookie
-function createCookie(name, value, days) {
-    var expires;
-      
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toGMTString();
-    }
-    else {
-        expires = "";
-    }
-      
-    document.cookie = escape(name) + "=" + 
-        escape(value) + expires + "; path=/";
-}
-  
+  document.addEventListener("keydown", keyPressed);
+function keyPressed(e) {
+  if (e["key"] === "Enter") {
+    let code = document.getElementById("inputArea")["value"];
+    code = code.split("\n").join("\\join");
+    document.cookie = "xcode = "+code;
+    console.log(document.cookie);
+  }
+}  
 </script>
 </html>
