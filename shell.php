@@ -46,7 +46,6 @@
             $codestr = substr($codestr,0,250);
             $existingGist.= '<pre>'.$codestr.'</pre><a href="'.$filename->raw_url.'">...</a><br>';
         }
-        $existingGist.= '<hr>';
         $completeFile.=$existingGist;
     }
     // echo  $_SESSION['access_token'];
@@ -54,6 +53,6 @@
 <body>
     <?php echo $completeFile;?>
     <a href="newGist.php">Create A New Gist</a>
-    <a href="addToGist.php">Add To Existing Gist</a>
+    <a href="listEditGist.php">Add To Existing Gist</a>
 </body>
 </html>
