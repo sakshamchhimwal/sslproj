@@ -279,8 +279,18 @@ section .title::after{
             <?php echo $completeFile;?>
     <a href="newGist.php" class="btn1">Create A New Gist</a>
     <a href="listEditGist.php" class="btn2">Add To Existing Gist</a>
-    <a href="deleteListGist.php">Delete A Gist</a>
-
+    <a href="deleteListGist.php" class="btn3" style="
+    position: absolute;
+    top: 4.3%;
+    right: 48%;
+    z-index: 1000;
+    text-decoration: none;
+    font-family: 'Ubuntu';
+    color: crimson;
+    font-size: 15px;
+    font-weight: 200;
+">Delete A Gist</a>
+</body>
 <script>
        $(document).ready(function(){
     $(window).scroll(function(){
@@ -298,6 +308,7 @@ section .title::after{
             $('.scroll-up-btn').removeClass("show");
         }
     })});
-</body>
-</script>
+    </script>
+
+
 </html>
