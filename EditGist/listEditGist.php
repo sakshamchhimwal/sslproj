@@ -180,23 +180,23 @@ section .title::after {
         $accToken = $_SESSION['access_token'];
         $curl = curl_init();
         curl_setopt($curl,CURLOPT_URL,$apiBase);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); 
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);  
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/vnd.github+json', 'Authorization: token '. $accToken)); 
-        curl_setopt($curl, CURLOPT_USERAGENT, 'CodeSpace Gists'); 
-        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'GET'); 
-        $api_response = curl_exec($curl); 
-        $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);          
-        if($http_code != 200){ 
-            if (curl_errno($curl)) {  
-                $error_msg = curl_error($curl);  
-            }else{ 
-                $error_msg = $api_response; 
-            } 
-            throw new Exception('Error '.$http_code.': '.$error_msg); 
-        }else{ 
-            return json_decode($api_response); 
-        } 
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/vnd.github+json', 'Authorization: token '. $accToken));
+        curl_setopt($curl, CURLOPT_USERAGENT, 'CodeSpace Gists');
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'GET');
+        $api_response = curl_exec($curl);
+        $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        if($http_code != 200){
+            if (curl_errno($curl)) {
+                $error_msg = curl_error($curl);
+            }else{
+                $error_msg = $api_response;
+            }
+            throw new Exception('Error '.$http_code.': '.$error_msg);
+        }else{
+            return json_decode($api_response);
+        }
     }
     $completeFile='<select name="gistSelect" style="padding: 5px;
     font-size: 20px;
@@ -249,9 +249,8 @@ section .title::after {
     </div>
     <form method='get' action='./codespaceEDIT.php' style="    margin: 100px;
     margin-left: 400px;">
-        <?php echo $completeFile;?>
-        <button type="submit" style="margin-left: 15px;
-    padding:2px;
+    <?php echo $completeFile;?>
+    <button type="submit" style="margin-left: 15px;
     padding-left: 10px;
     padding-right: 10px;
     font-size: 20px;
