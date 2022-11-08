@@ -222,7 +222,6 @@ section .title::after{
     margin-left: 400px;">
     <?php echo $completeFile;?>
     <button type="submit" style="margin-left: 15px;
-    padding:2px;
     padding-left: 10px;
     padding-right: 10px;
     font-size: 20px;
