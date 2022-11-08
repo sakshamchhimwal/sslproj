@@ -391,9 +391,9 @@ section .title::after {
     // echo  $_SESSION['access_token'];
 ?>
     <?php echo $completeFile;?>
-    <a href="newGist.php" class="btn1">Create A New Gist</a>
-    <a href="listEditGist.php" class="btn2">Add To Existing Gist</a>
-    <a href="deleteListGist.php" class="btn3" style="
+    <a href="./NewGist/newGist.php" class="btn1">Create A New Gist</a>
+    <a href="./EditGist/listEditGist.php" class="btn2">Add To Existing Gist</a>
+    <a href="./DeleteGist/deleteListGist.php" class="btn3" style="
     position: absolute;
     top: 4.3%;
     right: 48%;

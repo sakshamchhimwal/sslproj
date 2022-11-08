@@ -31,9 +31,10 @@
             echo 'Error:' . curl_error($ch);
             echo $http_code;
         }else{
+            echo 'Push Successful';
             // print_r($postField);
             // print_r(json_decode($result)); 
-            header("Location:shell.php");
+            header("Location:../shell.php");
 
         }
         curl_close($ch);

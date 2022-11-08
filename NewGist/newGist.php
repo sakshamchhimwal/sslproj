@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="en" style="background:black">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,24 +12,29 @@
     <title>New Gist</title>
 </head>
 <style>
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
-    *{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none;   
+    text-decoration: none;
 
 }
-html{
+
+html {
     scroll-behavior: smooth;
 }
+
 /* custom scroll bar */
 ::-webkit-scrollbar {
     width: 10px;
 }
+
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
+
 ::-webkit-scrollbar-thumb {
     background: #888;
 }
@@ -38,27 +44,36 @@ html{
 }
 
 /* all similar content styling codes */
-section{
+section {
     padding: 100px 0;
 }
-.max-width{
+
+.max-width {
     max-width: 1300px;
     padding: 0 80px;
     margin: auto;
 }
-.about, .services, .skills, .teams, .contact, footer{
+
+.about,
+.services,
+.skills,
+.teams,
+.contact,
+footer {
     font-family: 'Poppins', sans-serif;
 }
+
 .about .about-content,
 .services .serv-content,
 .skills .skills-content,
-.contact .contact-content{
+.contact .contact-content {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
 }
-section .title{
+
+section .title {
     position: relative;
     text-align: center;
     font-size: 40px;
@@ -67,7 +82,8 @@ section .title{
     padding-bottom: 20px;
     font-family: 'Ubuntu', sans-serif;
 }
-section .title::before{
+
+section .title::before {
     content: "";
     position: absolute;
     bottom: 0px;
@@ -77,7 +93,8 @@ section .title::before{
     background: #111;
     transform: translateX(-50%);
 }
-section .title::after{
+
+section .title::after {
     position: absolute;
     bottom: -8px;
     left: 50%;
@@ -87,9 +104,10 @@ section .title::after{
     background: #fff;
     transform: translateX(-50%);
 }
-.loginGit{
+
+.loginGit {
     z-index: 1000;
-    text-decoration:none;
+    text-decoration: none;
     font-family: "Ubuntu";
     color: crimson;
     font-size: 35px;
@@ -98,7 +116,8 @@ section .title::after{
     top: 3%;
     right: 4%;
 }
-    .navbar{
+
+.navbar {
     width: 100%;
     z-index: 999;
     padding: 10px 0;
@@ -106,32 +125,39 @@ section .title::after{
     font-family: 'Ubuntu', sans-serif;
     transition: all 0.3s ease;
 }
-.navbar.sticky{
+
+.navbar.sticky {
     padding: 10px 0;
     background: crimson;
 }
-.navbar .max-width{
+
+.navbar .max-width {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.navbar .logo a{
+
+.navbar .logo a {
     color: #fff;
     font-size: 35px;
     font-weight: 600;
 }
-.navbar .logo a span{
+
+.navbar .logo a span {
     color: crimson;
     transition: all 0.3s ease;
 }
-.navbar.sticky .logo a span{
+
+.navbar.sticky .logo a span {
     color: #fff;
 }
-.navbar .menu li{
+
+.navbar .menu li {
     list-style: none;
     display: inline-block;
 }
-.navbar .menu li a{
+
+.navbar .menu li a {
     display: block;
     color: #fff;
     font-size: 18px;
@@ -139,14 +165,17 @@ section .title::after{
     margin-left: 25px;
     transition: color 0.3s ease;
 }
-.navbar .menu li a:hover{
+
+.navbar .menu li a:hover {
     color: crimson;
 }
-.navbar.sticky .menu li a:hover{
+
+.navbar.sticky .menu li a:hover {
     color: #fff;
-}  
-.formxx{
-    
+}
+
+.formxx {
+
     margin-left: 30%;
     margin-top: 10%;
     width: 30%;
@@ -157,23 +186,22 @@ section .title::after{
     background: rgb(25, 24, 24);
     color: white;
     font-family: 'Ubuntu', sans-serif;
-    font-size:25px;
+    font-size: 25px;
 }
-.formxx:hover{
-    background:crimson;
+
+.formxx:hover {
+    background: crimson;
     transition: all 0.3s ease;
     transform: scale(1.05);
 }
-.inputxx{
-    background:crimson;
-}
-.mgstbtn:hover{
-    background:white;
+
+.inputxx {
+    background: crimson;
 }
 
-
-
-
+.mgstbtn:hover {
+    background: white;
+}
 </style>
 
 <?php
@@ -234,7 +262,7 @@ section .title::after{
             font-size: 20px;
             border: 2px solid red;
             border-radius: 7px;
-            background: crimson;"><a href="codespace.php" style="    padding: 10px;
+            background: crimson;"><a href="./codespace.php" style="    padding: 10px;
             text-decoration: none;
             color: white;
             font-family: "Ubuntu", sans-serif;">Click Here To start coding</a></button></div>';
@@ -291,7 +319,7 @@ section .title::after{
 ?>
 
 <body>
-<nav class="navbar">
+    <nav class="navbar">
         <div class="max-width">
             <div class="logo"><a href="#">Gists<span>Details</span></a></div>
 
@@ -300,33 +328,33 @@ section .title::after{
             </div>
         </div>
     </nav>
-    
+
     <?php echo $newGistOutput;?>
     <script>
-           $(document).ready(function(){
-    $(window).scroll(function(){
-        // sticky navbar on scroll script
-        if(this.scrollY > 20){
-            $('.navbar').addClass("sticky");
-        }else{
-            $('.navbar').removeClass("sticky");
-        }
-        
-        // scroll-up button show/hide script
-        if(this.scrollY > 500){
-            $('.scroll-up-btn').addClass("show");
-        }else{
-            $('.scroll-up-btn').removeClass("show");
-        }
-    })
-    var typed = new Typed(".typing", {
-        strings: ["Gists Is Created"],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
+    $(document).ready(function() {
+        $(window).scroll(function() {
+            // sticky navbar on scroll script
+            if (this.scrollY > 20) {
+                $('.navbar').addClass("sticky");
+            } else {
+                $('.navbar').removeClass("sticky");
+            }
+
+            // scroll-up button show/hide script
+            if (this.scrollY > 500) {
+                $('.scroll-up-btn').addClass("show");
+            } else {
+                $('.scroll-up-btn').removeClass("show");
+            }
+        })
+        var typed = new Typed(".typing", {
+            strings: ["Gists Is Created"],
+            typeSpeed: 100,
+            backSpeed: 60,
+            loop: true
+        });
     });
-    });
-</script>
+    </script>
 </body>
 
 </html>

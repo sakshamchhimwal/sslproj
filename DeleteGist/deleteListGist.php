@@ -52,7 +52,7 @@
 ?>
 
 <body>
-    <form method='get' action='deleteGist.php'>
+    <form method='get' action='./deleteGist.php'>
         <?php echo $completeFile;?>
         <button type="submit">Delete</submit>
     </form>

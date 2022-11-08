@@ -31,7 +31,8 @@
         }else{
             // // print_r($postField);
             // print_r(json_decode($result));
-                        header("Location:shell.php");
+            $redLoc = '../shell.php';
+                        header("Location:".$redLoc);
 
         }
     curl_close($ch);
