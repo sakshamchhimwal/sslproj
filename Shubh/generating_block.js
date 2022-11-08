@@ -296,5 +296,97 @@
         while_array = checkWhileInCode(code_lines, initial_tab_count, 0);
     }
 
-    main();
+     /**
+     * @param {Array Object}iterable_array - intended for the returned object of StripCode
+     * @param {Array Object}tab_array - the returned object of TabCounter
+     * @param {Int}start_index - the index from which we require to start
+     * @return the pair of start and end index of def
+    */
+    function checkIfInCode(iterable_array, tab_array, start_index) {
+        let def_dict = [[], []]
+        for (var i=start_index; i<iterable_array.length; i++){
+            if (check_if(iterable_array[i])){
+                def_dict[0].push(i);
+                for(var j = i+1; j<iterable_array.length; j++){
+                    if(tab_array[j] <= tab_array[i]){
+                        def_dict[1].push(j);
+                        break
+                    }
+                }
+            }
+        }
+        return def_dict;
+    }
+
     
+    /**
+     * @param {Stirg}line - the code if in which we need to check if 'def' is present 
+     * @return {boolParam}
+    */
+    function check_def(line) {
+        if (line.includes("#", 0)){
+            if(line.indexOf("#") < line.indexOf("def")){
+                return false;
+            }
+        }
+        return line.includes("def ", 0);
+    }
+
+
+    /**
+     * @param {Array Object}iterable_array - intended for the returned object of StripCode
+     * @param {Dict Object}def_dict - the def initial and ending pointa giiven
+     * @return {Array Object} - the names of function with index corresponding to the def_dict 
+    */
+    function get_function_name(iterable_array, def_dict){
+        let func_names = [];
+        for(var i=0; i<def_dict[0].length; i++){
+            let space_pos = iterable_array[def_dict[0][i].indexOf(" ")];
+            let brac_pos = iterable_array[def_dict[0][i].indexOf("(")];
+            let func_name_part = iterable_array[0][i].slice(space_pos+1, brac_pos);
+            func_name_part = func_name_part.trim();
+            func_names.push(func_name_part);
+        }
+        return func_names;
+    }
+
+
+    /**
+     * @param {Array Object}iterable_array - intended for the returned object of StripCode
+     * @param {Dict Object}def_dict - the def initial and ending pointa given
+     * @param {Int} func_index - the index of the function woy need parameter of
+     * @return the function paramms of the given function
+     */
+    function get_func_parameter(iterable_array, def_dict, func_index){
+        if(func_index >= def_dict[0].length) return null;
+        let name = iterable_array[def_dict[0][func_index]];
+        first_brac_pos = name.indexOf("(");
+        last_brac_pos = name.lastIndexOf(")");
+        let params = name.slice(first_brac_pos+1, last_brac_pos);
+        let param_array = params.split(",");
+        return param_array;
+    }
+
+     /**
+     * @param {Array Object}iterable_array - intended for the returned object of StripCode
+     * @param {Dict Object}def_dict - the def initial and ending pointa given
+     * @return {Int} the nu,mber of parameter of each function
+     */
+    function get_func_parameter_count(iterable_array, def_dict){
+        param_count = []
+        for (var i=0; i<def_dict[0].length; i++){
+            let line = iterable_array[def_dict[0][func_index]];
+            first_brac_pos = name.indexOf("(");
+            last_brac_pos = name.lastIndexOf(")");
+            var flag = false;
+            for(var j=first_brac_pos+1; j<last_brac_pos; j++){
+                if(line.charAt(j)!=" " || line.chatAt(j) !== ""){
+                    param_count.push((line.split(",")).length);
+                    flag = true;
+                    break;
+                }
+            }
+            if(!flag){param_count.push(0)};
+        }
+    }
+    main();
