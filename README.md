@@ -1,10 +1,10 @@
 # CodeSpace
 
-**What Is CodeSpace All About**
+### What Is CodeSpace All About
 
 Our aim while creating the project was to maximize the visual appeal of the code for not only the programmer but also for the user who is intrigued by how to program works.
 
-**Features**
+## Features
 
 CodeSpace presents a lot of unique features that come in handy while writing code.</br>
 1. Code Storage</br>
@@ -14,6 +14,9 @@ CodeSpace presents a lot of unique features that come in handy while writing cod
 3. CodeVisualisation</br>
   - This works in two parts</br>
     - _Make Playground Form Code:_ CodeSpace can automatically detect the CodePieces and arrange them as CodeBlocks and provide a visual feedback of how the program executed.</br>
+    > A visual image in the hand of an artist is merely a tool to trigger a mental image
+    > 
+    > Same can be said for programmers, this tool will trigger a clarity in your mind
     - _Make Code Form Playground_ CodeSpace also hold the ability to produce the code form the arranging the Blocks of code in the playground as the user wishes and generates a code automatically from it.</br>
 
 ---
