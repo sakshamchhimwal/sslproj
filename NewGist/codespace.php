@@ -19,8 +19,7 @@ session_start();
       console.log(document.cookie);
     }
     </script>
-    <script type="module" src="./block_script.js"></script>
-    <script>import * from "./block_script.js"</script>
+
 
 </head>
 <style>
@@ -703,7 +702,7 @@ function keyPressed(e) {
     let codee = document.getElementById("inputArea")["value"];
     let code = document.getElementById("inputArea")["value"];
     let strip_code = StripCode(code);
-    let tab_array = TabCounter(code);
+    let tab_array = TabCount(strip_code);
     let if_dict = checkIfInCode(strip_code, tab_array, 0);
     let for_list = checkForInCode(strip_code, tab_array, 0);
     let else_array = checkElseInCode(strip_code, tab_array, 0);
@@ -711,6 +710,7 @@ function keyPressed(e) {
     let while_array = checkWhileInCode(strip_code, tab_array, 0);
     func_name_array = get_function_name(strip_code, fun_dict);
     console.log(code);
+    console.log(tab_array);
     console.log("hi");
     console.log(strip_code);
     console.log(if_dict);
@@ -718,7 +718,7 @@ function keyPressed(e) {
     console.log(else_array);
     console.log(fun_dict);
     console.log(while_array);
-    // console.log(func_name_array);
+    console.log(func_name_array);
     codee = codee.split("\n").join("\\join");
     document.cookie = "xcode = " + codee + ";SameSite=None; Secure";
     console.log(document.cookie);
