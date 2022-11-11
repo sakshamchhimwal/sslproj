@@ -437,29 +437,29 @@
                 range_list.push(NaN);
             }
             else {
-            range_pos = range_pos + 6;
-            line = line.slice(range_pos);
-            let back_pos = line.indexOf(")");
-            line = line.slice(0, back_pos);
-            line_arr = line.split(",");
-            //console.log(line_arr);
-            let line_arr_length = line_arr.length;
-            if(line_arr_length === 1){
-                let num = Number.parseInt(line_arr[0]);
-                range_list.push(num);
-            }
-            else if(line_arr_length === 2){
-                let num1 = Number.parseInt(line_arr[0]);
-                let num2 = Number.parseInt(line_arr[1]);
-                range_list.push(num2-num1);
-            }
-            else if (line_arr_length === 3){
-                let num1 = Number.parseInt(line_arr[0]);
-                let num2 = Number.parseInt(line_arr[1]);
-                let num3 = Number.parseInt(line_arr[2]);
-                let diff = num2-num1;
-                range_list.push(Math.floor(diff/num3));
-            }
+                range_pos = range_pos + 6;
+                line = line.slice(range_pos);
+                let back_pos = line.indexOf(")");
+                line = line.slice(0, back_pos);
+                line_arr = line.split(",");
+                //console.log(line_arr);
+                let line_arr_length = line_arr.length;
+                if(line_arr_length === 1){
+                    let num = Number.parseInt(line_arr[0]);
+                    range_list.push(num);
+                }
+                else if(line_arr_length === 2){
+                    let num1 = Number.parseInt(line_arr[0]);
+                    let num2 = Number.parseInt(line_arr[1]);
+                    range_list.push(num2-num1);
+                }
+                else if (line_arr_length === 3){
+                    let num1 = Number.parseInt(line_arr[0]);
+                    let num2 = Number.parseInt(line_arr[1]);
+                    let num3 = Number.parseInt(line_arr[2]);
+                    let diff = Math.abs(num2-num1);
+                    range_list.push(Math.floor(diff/Math.abs(num3)));
+                }
             }
         }
         return range_list;
