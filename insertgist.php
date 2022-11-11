@@ -5,8 +5,11 @@
     $gistId=end($gistLink);
     if(isset($accToken) && isset($_COOKIE['xcode'])){
         $code = $_COOKIE['xcode'];
-        $code = str_replace("&quot;",'\"',str_replace("&#039;",'\'',htmlspecialchars(str_replace('\\join','\r\n',$code))));
+        $code = str_replace('\\join','\r\n',$code);
+        $code = str_replace('\\tabspace','    ',$code);
+        $code = htmlspecialchars($code);
         $postField  ='{"description":"'.$_SESSION['gistDetails']['desc'].'","files":{"'.$_SESSION['gistDetails']['fname'].'":{"content":"'.$code.'"}}}';
+        echo '<pre>'.$code.'</pre>';
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, 'https://api.github.com/gists/'.$gistId);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
