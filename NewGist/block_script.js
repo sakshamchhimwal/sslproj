@@ -342,7 +342,7 @@ export function get_function_name(iterable_array, def_dict) {
     let func_names =[];
     for(var i = 0; i<def_dict[0].length; i++) {
         let line = iterable_array[def_dict[0][i]];
-        line = line.trimStart;
+        line = line.trimStart();
         let space_pos = line.indexOf(" ");
         let brac_pos = line.indexOf("(");
         let func_name_part = line.slice(space_pos+1, brac_pos);
@@ -391,3 +391,23 @@ export function get_func_parameter_count(iterable_array, def_dict) {
         if(!flag) {param_count.push(0)};
     }
 }
+
+    /**
+     * @param {Array Object}iterable_array - intended for the returned object of StripCode
+     * @param {if Object}def_dict - the def initial and ending pointa given of the if
+     * @return {Array Object} - the names of function with index corresponding to the def_dict
+    */
+    export function get_if_condition(iterable_array, if_dict){
+        let if_conditions = [];
+        for(var i=0; i<if_dict[0].length; i++){
+            let line = iterable_array[if_dict[0][i]];
+            line = line.trimStart();
+            let space_pos = line.indexOf("(");
+            let brac_pos = line.indexOf(")");
+            let func_name_part = line.slice(space_pos+1, brac_pos);
+            func_name_part = func_name_part.trim();
+            if_conditions.push(func_name_part);
+        }
+        return if_conditions;
+    }
+
