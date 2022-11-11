@@ -2,43 +2,53 @@
     session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en"  style="background:black">
+<html lang="en" style="background:black">
+
 <head>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shell</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <script src="https://kit.fontawesome.com/5d50a14114.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tsparticles/2.5.1/tsparticles.min.js" integrity="sha512-+YPbXItNhUCZR3fn5KeWPtJrXuoqRYQ4Gd1rIjEFG+h8UJYekebhOMh84vv7q+Y1sy5kdIIVtfftehCiigriMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
-    <link rel="stylesheet" media="screen and (max-width: 1170px)" href="phone.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Shell</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <script src="https://kit.fontawesome.com/5d50a14114.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tsparticles/2.5.1/tsparticles.min.js"
+            integrity="sha512-+YPbXItNhUCZR3fn5KeWPtJrXuoqRYQ4Gd1rIjEFG+h8UJYekebhOMh84vv7q+Y1sy5kdIIVtfftehCiigriMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+        <link rel="stylesheet" media="screen and (max-width: 1170px)" href="phone.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
     </head>
 </head>
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
-    *{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none;   
+    text-decoration: none;
 
 }
-html{
+
+html {
     scroll-behavior: smooth;
 }
+
 /* custom scroll bar */
 ::-webkit-scrollbar {
     width: 10px;
 }
+
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
+
 ::-webkit-scrollbar-thumb {
     background: #888;
 }
@@ -48,27 +58,36 @@ html{
 }
 
 /* all similar content styling codes */
-section{
+section {
     padding: 100px 0;
 }
-.max-width{
+
+.max-width {
     max-width: 1300px;
     padding: 0 80px;
     margin: auto;
 }
-.about, .services, .skills, .teams, .contact, footer{
+
+.about,
+.services,
+.skills,
+.teams,
+.contact,
+footer {
     font-family: 'Poppins', sans-serif;
 }
+
 .about .about-content,
 .services .serv-content,
 .skills .skills-content,
-.contact .contact-content{
+.contact .contact-content {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
 }
-section .title{
+
+section .title {
     position: relative;
     text-align: center;
     font-size: 40px;
@@ -77,7 +96,8 @@ section .title{
     padding-bottom: 20px;
     font-family: 'Ubuntu', sans-serif;
 }
-section .title::before{
+
+section .title::before {
     content: "";
     position: absolute;
     bottom: 0px;
@@ -87,7 +107,8 @@ section .title::before{
     background: #111;
     transform: translateX(-50%);
 }
-section .title::after{
+
+section .title::after {
     position: absolute;
     bottom: -8px;
     left: 50%;
@@ -97,9 +118,10 @@ section .title::after{
     background: #fff;
     transform: translateX(-50%);
 }
-.loginGit{
+
+.loginGit {
     z-index: 1000;
-    text-decoration:none;
+    text-decoration: none;
     font-family: "Ubuntu";
     color: crimson;
     font-size: 35px;
@@ -108,7 +130,8 @@ section .title::after{
     top: 3%;
     right: 4%;
 }
-    .navbar{
+
+.navbar {
     width: 100%;
     z-index: 999;
     padding: 10px 0;
@@ -116,32 +139,39 @@ section .title::after{
     font-family: 'Ubuntu', sans-serif;
     transition: all 0.3s ease;
 }
-.navbar.sticky{
+
+.navbar.sticky {
     padding: 10px 0;
     background: crimson;
 }
-.navbar .max-width{
+
+.navbar .max-width {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.navbar .logo a{
+
+.navbar .logo a {
     color: #fff;
     font-size: 35px;
     font-weight: 600;
 }
-.navbar .logo a span{
+
+.navbar .logo a span {
     color: crimson;
     transition: all 0.3s ease;
 }
-.navbar.sticky .logo a span{
+
+.navbar.sticky .logo a span {
     color: #fff;
 }
-.navbar .menu li{
+
+.navbar .menu li {
     list-style: none;
     display: inline-block;
 }
-.navbar .menu li a{
+
+.navbar .menu li a {
     display: block;
     color: #fff;
     font-size: 18px;
@@ -149,46 +179,54 @@ section .title::after{
     margin-left: 25px;
     transition: color 0.3s ease;
 }
-.navbar .menu li a:hover{
+
+.navbar .menu li a:hover {
     color: crimson;
 }
-.navbar.sticky .menu li a:hover{
+
+.navbar.sticky .menu li a:hover {
     color: #fff;
 }
-.menu-btn{
+
+.menu-btn {
     color: #fff;
     font-size: 23px;
     cursor: pointer;
     display: none;
 }
-.btn1{
+
+.btn1 {
     z-index: 1000;
-    text-decoration:none;
+    text-decoration: none;
     font-family: "Ubuntu";
     color: crimson;
     font-size: 15px;
     font-weight: 200;
     position: absolute;
     top: 4.3%;
-    right: 5%;  
+    right: 5%;
 }
-.btn1:hover{
+
+.btn1:hover {
     color: white;
 }
-.btn2{
+
+.btn2 {
     z-index: 1000;
-    text-decoration:none;
+    text-decoration: none;
     font-family: "Ubuntu";
     color: crimson;
     font-size: 15px;
     font-weight: 200;
     position: absolute;
     top: 4.3%;
-    right: 27%; 
+    right: 27%;
 }
-.btn2:hover{
+
+.btn2:hover {
     color: white;
 }
+
 .shellxx {
     border: 2px solid crimson;
     font-family: 'Ubuntu', sans-serif;
@@ -201,20 +239,97 @@ section .title::after{
     background: rgb(25, 24, 24);
     border-radius: 2px solid crimson;
 }
-.shellxx:hover{
-    background:crimson;
+
+.shellxx:hover {
+    background: crimson;
     transition: all 0.3s ease;
     transform: scale(1.05);
 }
-.read{
-    color:blue;
+
+.read {
+    color: blue;
 }
-.contentxx{
-    background:rgb(25, 24, 24);
+
+.contentxx {
+    background: rgb(25, 24, 24);
+}
+
+/* Some Additions made by me are here below */
+
+.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    background: #282a36;
+}
+
+.hljs-built_in,
+.hljs-selector-tag,
+.hljs-section,
+.hljs-link {
+    color: #8be9fd;
+}
+
+.hljs-keyword {
+    color: #ff79c6;
+}
+
+.hljs,
+.hljs-subst {
+    color: #f8f8f2;
+}
+
+.hljs-title,
+.hljs-attr,
+.hljs-meta-keyword {
+    font-style: italic;
+    color: #50fa7b;
+}
+
+.hljs-string,
+.hljs-meta,
+.hljs-name,
+.hljs-type,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+    color: #f1fa8c;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion {
+    color: #6272a4;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-title,
+.hljs-section,
+.hljs-doctag,
+.hljs-type,
+.hljs-name,
+.hljs-strong {
+    font-weight: bold;
+}
+
+.hljs-literal,
+.hljs-number {
+    color: #bd93f9;
+}
+
+.hljs-emphasis {
+    font-style: italic;
 }
 </style>
+
 <body>
-<nav class="navbar">
+    <script src=".\highlight.min.js"></Script>
+    <nav class="navbar">
         <div class="max-width">
             <div class="logo"><a href="#">Gis<span>ts</span></a></div>
 
@@ -224,7 +339,7 @@ section .title::after{
         </div>
     </nav>
 
-<?php
+    <?php
     function getAllGists(){
         $apiBase= "https://api.github.com/gists";
         $accToken = $_SESSION['access_token'];
@@ -260,7 +375,6 @@ section .title::after{
     foreach(getAllGists() as $gist){
         $existingGist="";
         foreach($gist->files as $filename){
-            
             $existingGist='<div class="shellxx">';
             $i++;
             // $existingGist.=$i.')';//idhar laga
@@ -268,7 +382,7 @@ section .title::after{
             $existingGist.= '<br>';//idhar laga
             $codestr = htmlspecialchars(file_get_contents($filename->raw_url));
             $codestr = substr($codestr,0,250);
-            $existingGist.= '<pre>'.$codestr.'</pre><a href="'.$filename->raw_url.'"><div class="read">...</div></a><br>';//idhar laga
+            $existingGist.= '<pre><code class="language-python" id="codeBox__">'.$codestr.'</code></pre><a href="'.$filename->raw_url.'"><div class="read">...</div></a><br>';//idhar laga
             $existingGist.="</div>";
         }
         $completeFile.=$existingGist;
@@ -276,10 +390,10 @@ section .title::after{
     $completeFile.="</div>";
     // echo  $_SESSION['access_token'];
 ?>
-            <?php echo $completeFile;?>
-    <a href="newGist.php" class="btn1">Create A New Gist</a>
-    <a href="listEditGist.php" class="btn2">Add To Existing Gist</a>
-    <a href="deleteListGist.php" class="btn3" style="
+    <?php echo $completeFile;?>
+    <a href="./NewGist/newGist.php" class="btn1">Create A New Gist</a>
+    <a href="./EditGist/listEditGist.php" class="btn2">Add To Existing Gist</a>
+    <a href="./DeleteGist/deleteListGist.php" class="btn3" style="
     position: absolute;
     top: 4.3%;
     right: 48%;
@@ -292,23 +406,24 @@ section .title::after{
 ">Delete A Gist</a>
 </body>
 <script>
-       $(document).ready(function(){
-    $(window).scroll(function(){
+$(document).ready(function() {
+    $(window).scroll(function() {
         // sticky navbar on scroll script
-        if(this.scrollY > 20){
+        if (this.scrollY > 20) {
             $('.navbar').addClass("sticky");
-        }else{
+        } else {
             $('.navbar').removeClass("sticky");
         }
-        
+
         // scroll-up button show/hide script
-        if(this.scrollY > 500){
+        if (this.scrollY > 500) {
             $('.scroll-up-btn').addClass("show");
-        }else{
+        } else {
             $('.scroll-up-btn').removeClass("show");
         }
-    })});
-    </script>
+    })
+});
+</script>
 
 
 </html>
