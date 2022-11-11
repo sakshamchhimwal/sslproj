@@ -348,7 +348,7 @@ function checkIfInCode(iterable_array, tab_array, start_index) {
             if_dict[0].push(i);
             for (var j = i + 1; j < iterable_array.length; j++) {
                 if (tab_array[j] <= tab_array[i]) {
-                    if_dict[1].push(j - 1);
+                    if_dict[1].push(j);
                     break
                 }
             }
