@@ -23,5 +23,5 @@ CodeSpace presents a lot of unique features that come in handy while writing cod
 
 ## This Project is submitted by team of 3 members consisting
 - **Shubh Agarwal** (210020047)
-- **Saksham Pandey** (210020046)
+- **Saksham Chhimwal** (210020046)
 - **Shivesh Pandey** (210020044)
