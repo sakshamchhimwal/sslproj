@@ -221,6 +221,7 @@ section .title::after {
         </div>
     </pre>
     </form>
+    <a href="makeBlock.php" target="_blank">Make GUI</a>
 </body>
 <script>
 // $(document).ready(function() {
@@ -701,8 +702,8 @@ function keyPressed(e) {
         let codee = document.getElementById("inputArea")["value"];
         let code = document.getElementById("inputArea")["value"];
         let strip_code = StripCode(code);
-        let tab_array = TabCount(code);
-        // console.log(tab_array);
+        let tab_array = TabCount(strip_code);
+        //console.log(tab_array);
         let if_dict = checkIfInCode(strip_code, tab_array, 0);
         let for_list = checkForInCode(strip_code, tab_array, 0);
         let else_array = checkElseInCode(strip_code, tab_array, 0);
@@ -712,20 +713,24 @@ function keyPressed(e) {
         // console.log(code);
         // console.log("hi");
         // console.log(strip_code);
-        // console.log(if_dict);
+        console.log(if_dict);
         // console.log(for_list);
         // console.log(else_array);
-        // console.log(fun_dict);
+        console.log(fun_dict);
         // console.log(while_array);
-        let store = func_name_array;
         // store = (store, true);
         // setcookie("funcName", store);
-        store = store.toString();
-        console.log(store)
-        document.cookie = "funcNames = " + store + ";SameSite=None; Secure";
+        fun_dict = fun_dict.toString();
+        func_name_array = func_name_array.toString();
+        if_dict = if_dict.toString();
+        else_array = else_array.toString();
+        document.cookie = "funcNames = " + func_name_array + ";SameSite=None; Secure";
+        document.cookie = "defLocs = " + fun_dict + ";SameSite=None; Secure";
+        document.cookie = "ifLocs = " + if_dict + ";SameSite=None; Secure";
+        document.cookie = "elseLocs = " + else_array + ";SameSite=None; Secure";
         codee = codee.split("\n").join("\\join");
         document.cookie = "xcode = " + codee + ";SameSite=None; Secure";
-        console.log(document.cookie.split(";")[0]);
+        console.log(document.cookie.split(";"));
     }
 }
 </script>
