@@ -1,43 +1,43 @@
-<?php 
+<?php
 session_start();
 
-// Include configuration file 
-require_once 'config.php'; 
- 
-// Include and initialize user class 
-require_once 'User.class.php'; 
-$user = new User(); 
-$output="";
-if(isset($accessToken)){ 
-    
-    // Get the user profile data from Github 
-    $gitUser = $gitClient->getAuthenticatedUser($accessToken); 
-    if(!empty($gitUser)){ 
-        // Getting user profile details 
-        $gitUserData = array(); 
-        $gitUserData['oauth_uid'] = !empty($gitUser->id)?$gitUser->id:''; 
-        $gitUserData['name'] = !empty($gitUser->name)?$gitUser->name:''; 
-        $gitUserData['username'] = !empty($gitUser->login)?$gitUser->login:''; 
-        $gitUserData['email'] = !empty($gitUser->email)?$gitUser->email:''; 
-        $gitUserData['location'] = !empty($gitUser->location)?$gitUser->location:''; 
-        $gitUserData['picture'] = !empty($gitUser->avatar_url)?$gitUser->avatar_url:''; 
-        $gitUserData['link'] = !empty($gitUser->html_url)?$gitUser->html_url:''; 
-         
-        // Insert or update user data to the database 
-        $gitUserData['oauth_provider'] = 'github'; 
-        $userData = $user->checkUser($gitUserData); 
- 
-        // Storing user data    in the session 
-        $_SESSION['userData'] = $userData; 
- 
-        // Render Github profile data 
+// Include configuration file
+require_once 'config.php';
+
+// Include and initialize user class
+require_once 'User.class.php';
+$user = new User();
+$output = "";
+if (isset($accessToken)) {
+
+    // Get the user profile data from Github
+    $gitUser = $gitClient->getAuthenticatedUser($accessToken);
+    if (!empty($gitUser)) {
+        // Getting user profile details
+        $gitUserData = array();
+        $gitUserData['oauth_uid'] = !empty($gitUser->id) ? $gitUser->id : '';
+        $gitUserData['name'] = !empty($gitUser->name) ? $gitUser->name : '';
+        $gitUserData['username'] = !empty($gitUser->login) ? $gitUser->login : '';
+        $gitUserData['email'] = !empty($gitUser->email) ? $gitUser->email : '';
+        $gitUserData['location'] = !empty($gitUser->location) ? $gitUser->location : '';
+        $gitUserData['picture'] = !empty($gitUser->avatar_url) ? $gitUser->avatar_url : '';
+        $gitUserData['link'] = !empty($gitUser->html_url) ? $gitUser->html_url : '';
+
+        // Insert or update user data to the database
+        $gitUserData['oauth_provider'] = 'github';
+        $userData = $user->checkUser($gitUserData);
+
+        // Storing user data    in the session
+        $_SESSION['userData'] = $userData;
+
+        // Render Github profile data
 
         $GLOBALS['output'] .= '<div class="total"
-        style=" background : rgb(27,27,27);"><div class="Heading"><h2><h1 class="git">GitHub</h1> <h2 class="git2">Account Details</h2></h2></div>'; 
-        $GLOBALS['output'] .= '<div class="ac-data">'; 
+        style=" background : rgb(27,27,27);"><div class="Heading"><h2><h1 class="git">GitHub</h1> <h2 class="git2">Account Details</h2></h2></div>';
+        $GLOBALS['output'] .= '<div class="ac-data">';
         $GLOBALS['output'] .= '<div class="wrapperxx"><div class="img1" style="    margin-right: 10%;
         border: 2px solid crimson;
-        border-radius: 100%;"><img src="'.$userData['picture'].'" height=200 width=200 class="profileimg" ></div><div  class="containerxx"
+        border-radius: 100%;"><img src="' . $userData['picture'] . '" height=200 width=200 class="profileimg" ></div><div  class="containerxx"
         style="    border: 2px solid crimson;
         width: 35%;
         margin: 50px;
@@ -47,12 +47,12 @@ if(isset($accessToken)){
         padding:10px;
         padding-bottom:30px;
         background: rgb(25, 24, 24);
-        font-size: 25px;">'; 
-        $GLOBALS['output'] .= '<div class="box"><p><b>ID:</b> '.$userData['oauth_uid'].'</p></div>'; 
-        $GLOBALS['output'] .= '<div class="box"><p><b>Name:</b> '.$userData['name'].'</p></div>'; 
-        $GLOBALS['output'] .= '<div class="box"><p><b>Login Username:</b> '.$userData['username'].'</p></div>'; 
-        $GLOBALS['output'] .= '<div class="box"><p><b>Email:</b> '.$userData['email'].'</p></div>'; 
-        $GLOBALS['output'] .= '<div class="box"><p><b>Location:</b> '.$userData['location'].'</p></div></div></div>'; 
+        font-size: 25px;">';
+        $GLOBALS['output'] .= '<div class="box"><p><b>ID:</b> ' . $userData['oauth_uid'] . '</p></div>';
+        $GLOBALS['output'] .= '<div class="box"><p><b>Name:</b> ' . $userData['name'] . '</p></div>';
+        $GLOBALS['output'] .= '<div class="box"><p><b>Login Username:</b> ' . $userData['username'] . '</p></div>';
+        $GLOBALS['output'] .= '<div class="box"><p><b>Email:</b> ' . $userData['email'] . '</p></div>';
+        $GLOBALS['output'] .= '<div class="box"><p><b>Location:</b> ' . $userData['location'] . '</p></div></div></div>';
         $GLOBALS['output'] .= '<div class="Shellstyle"><p><b>Profile Link:</b><button class="bottombtn" style="    margin: 3px;
         padding: 3px;
         border: 2px solid crimson;
@@ -60,7 +60,7 @@ if(isset($accessToken)){
         text-decoration: none;
         background: crimson;
         border-radius: 7px;
-        margin-left: 10px;"> <a href="'.$userData['link'].'" target="_blank">Click to visit</a></p></div>'; 
+        margin-left: 10px;"> <a href="' . $userData['link'] . '" target="_blank">Click to visit</a></p></div>';
         $GLOBALS['output'] .= '<div class="Shellstyle"><p>Proceed to Shell <button class="bottombtn" style="    margin: 3px;
         padding: 3px;
         border: 2px solid crimson;
@@ -68,7 +68,7 @@ if(isset($accessToken)){
         text-decoration: none;
         background: crimson;
         border-radius: 7px;
-        margin-left: 10px;"><a href="shell.php">Shell</a></p></button></div>'; 
+        margin-left: 10px;"><a href="shell.php">Shell</a></p></button></div>';
         $GLOBALS['output'] .= '<div class="Shellstyle"><p>Logout from Github<button class="bottombtn" style="    margin: 3px;
         padding: 3px;
         border: 2px solid crimson;
@@ -76,7 +76,7 @@ if(isset($accessToken)){
         text-decoration: none;
         background: crimson;
         border-radius: 7px;
-        margin-left: 10px;"> <a href="logout.php">LogOut</a></p></button></div></div>'; 
+        margin-left: 10px;"> <a href="logout.php">LogOut</a></p></button></div></div>';
         $GLOBALS['output'] .= '</div><div class="last-container">
         <ul>
             <li><a href="https://instagram.com/festeve360?igshid=YmMyMTA2M2Y=" target="_blank"><i
@@ -88,39 +88,40 @@ if(isset($accessToken)){
         <footer class="center">
             Copyright &copy;www.CodeSpace.com. All rights reserved
         </footer>
-    </div>'; 
+    </div>';
         $_SESSION['output'] = $GLOBALS['output'];
-    }else{ 
-        $GLOBALS['output'] = '<h3 style="color:crimson">Something went wrong, please try again!</h3>'; 
+    } else {
+        $GLOBALS['output'] = '<h3 style="color:crimson">Something went wrong, please try again!</h3>';
         $_SESSION['output'] = $GLOBALS['output'];
-    }  
-}elseif(isset($_GET['code'])){ 
-    // Verify the state matches the stored state 
-    if(!$_GET['state'] || $_SESSION['state'] != $_GET['state']) { 
-        header("Location: ".$_SERVER['PHP_SELF']); 
-    } 
-     
-    // Exchange the auth code for a token 
-    $accessToken = $gitClient->getAccessToken($_GET['state'], $_GET['code']); 
-    header("Location: ".$_SERVER['PHP_SELF']); 
-    $_SESSION['access_token'] = $accessToken; 
-   
-    // header('Location: ./'); 
-}else{ 
-    // Generate a random hash and store in the session for security 
-    $_SESSION['state'] = hash('sha256', microtime(TRUE) . rand() . $_SERVER['REMOTE_ADDR']); 
-     
-    // Remove access token from the session 
-    unset($_SESSION['access_token']); 
-   
-    // Get the URL to authorize 
-    $authUrl = $gitClient->getAuthorizeURL($_SESSION['state']); 
-     
-    // Render Github login button 
+    }
+} elseif (isset($_GET['code'])) {
+    // Verify the state matches the stored state
+    if (!$_GET['state'] || $_SESSION['state'] != $_GET['state']) {
+        header("Location: " . $_SERVER['PHP_SELF']);
+    }
 
-    $GLOBALS['output'] = '<a href="'.htmlspecialchars($authUrl).'"><div class="loginGit">Login</div></a>'; 
-} 
-function getOutput(){
+    // Exchange the auth code for a token
+    $accessToken = $gitClient->getAccessToken($_GET['state'], $_GET['code']);
+    header("Location: " . $_SERVER['PHP_SELF']);
+    $_SESSION['access_token'] = $accessToken;
+
+    // header('Location: ./');
+} else {
+    // Generate a random hash and store in the session for security
+    $_SESSION['state'] = hash('sha256', microtime(true) . rand() . $_SERVER['REMOTE_ADDR']);
+
+    // Remove access token from the session
+    unset($_SESSION['access_token']);
+
+    // Get the URL to authorize
+    $authUrl = $gitClient->getAuthorizeURL($_SESSION['state']);
+
+    // Render Github login button
+
+    $GLOBALS['output'] = '<a href="' . htmlspecialchars($authUrl) . '"><div class="loginGit">Login</div></a>';
+}
+function getOutput()
+{
     return $GLOBALS['output'];
 }
 ?>
@@ -519,8 +520,8 @@ footer {
             <div class="logo"><a href="#">Code<span>Space</span></a></div>
             <!-- <ul class="menu">
                 <?php
-                    echo '<li><a href="'.htmlspecialchars($authUrl).'" class="menu-btn">Log-in</a></li>';
-                ?>
+echo '<li><a href="' . htmlspecialchars($authUrl) . '" class="menu-btn">Log-in</a></li>';
+?>
             </ul> -->
             <div class="menu-btn">
                 <i class="fas fa-bars"></i>

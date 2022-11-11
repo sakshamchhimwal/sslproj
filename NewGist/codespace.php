@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -13,13 +13,15 @@
     <title>CodeSpace</title>
     <script>
     function makeCooki() {
-        let code = document.getElementById("inputArea")["value"];
-        code = code.split("\n").join("\\join");
-        document.cookie = "xcode = " + code;
-        console.log(document.cookie);
+      let code = document.getElementById("inputArea")["value"];
+      code = code.split("\n").join("\\join");
+      document.cookie = "xcode = " + code;
+      console.log(document.cookie);
     }
     </script>
-     <script type="text/javascript" src="generating_block.js"></script>
+    <script type="module" src="./block_script.js"></script>
+    <script>import * from "./block_script.js"</script>
+
 </head>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
@@ -183,7 +185,6 @@ section .title::after {
 .navbar.sticky .menu li a:hover {
     color: #fff;
 }
-<script type="text/javascript" src="generating_block.js"></script>
 </style>
 
 <body>
@@ -242,32 +243,52 @@ section .title::after {
 // })
 document.addEventListener("keydown", keyPressed);
 
-function keyPressed(e) {
-    if (e["key"] === "Enter") {
-        let codee = document.getElementById("inputArea")["value"];
-        let code = document.getElementById("inputArea")["value"];
-        let strip_code = StripCode(code);
-        let tab_array = TabCount(code);
-        let if_dict = checkIfInCode(strip_code, tab_array, 0);
-        let for_list = checkForInCode(strip_code, tab_array, 0);
-        let else_array = checkElseInCode(strip_code, tab_array, 0);
-        let fun_dict = checkDefInCode(strip_code, tab_array, 0);
-        let while_array = checkWhileInCode(strip_code, tab_array, 0);
-        func_name_array = get_function_name(strip_code, fun_dict);
-        console.log(code);
-        console.log("hi");
-        console.log(strip_code);
-        console.log(if_dict);
-        console.log(for_list);
-        console.log(else_array);
-        console.log(fun_dict);
-        console.log(while_array);
-        // console.log(func_name_array);
-        codee = codee.split("\n").join("\\join");
-        document.cookie = "xcode = " + codee + ";SameSite=None; Secure";
-        console.log(document.cookie);
+document.getElementById('inputArea').addEventListener('keydown', function(e)
+  {
+    if (e.key == 'Tab') {
+      e.preventDefault();
+      var start = this.selectionStart;
+      var end = this.selectionEnd;
 
+      // set textarea value to: text before caret + tab + text after caret
+      this.value = this.value.substring(0, start) +
+      "\t" + this.value.substring(end);
+
+      // put caret at right position again
+      this.selectionStart =
+      this.selectionEnd = start + 1;
     }
+  }
+);
+
+// import {StripCode, TabCounter, checkIfInCode, checkForInCode, checkElseInCode, checkDefInCode, checkWhileInCode, get_function_name} from
+
+function keyPressed(e) {
+  if (e["key"] === "Enter") {
+    let codee = document.getElementById("inputArea")["value"];
+    let code = document.getElementById("inputArea")["value"];
+    let strip_code = StripCode(code);
+    let tab_array = TabCounter(code);
+    let if_dict = checkIfInCode(strip_code, tab_array, 0);
+    let for_list = checkForInCode(strip_code, tab_array, 0);
+    let else_array = checkElseInCode(strip_code, tab_array, 0);
+    let fun_dict = checkDefInCode(strip_code, tab_array, 0);
+    let while_array = checkWhileInCode(strip_code, tab_array, 0);
+    func_name_array = get_function_name(strip_code, fun_dict);
+    console.log(code);
+    console.log("hi");
+    console.log(strip_code);
+    console.log(if_dict);
+    console.log(for_list);
+    console.log(else_array);
+    console.log(fun_dict);
+    console.log(while_array);
+    // console.log(func_name_array);
+    codee = codee.split("\n").join("\\join");
+    document.cookie = "xcode = " + codee + ";SameSite=None; Secure";
+    console.log(document.cookie);
+
+  }
 }
 </script>
 
