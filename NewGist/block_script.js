@@ -49,6 +49,8 @@ function TabCount(iterable_array) {
       for (var i = 0; i < line.length; i++) {
         if (line.charAt(i) === " ") {
           count++;
+        } else if (line.charAt(i) === "\t") {
+          count = count + 4;
         } else if (line.charAt(i) === "#") {
           count = count + 1000000;
           break;
