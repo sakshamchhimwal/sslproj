@@ -19,6 +19,7 @@
         console.log(document.cookie);
     }
     </script>
+     <script type="text/javascript" src="generating_block.js"></script>
 </head>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
@@ -182,6 +183,7 @@ section .title::after {
 .navbar.sticky .menu li a:hover {
     color: #fff;
 }
+<script type="text/javascript" src="generating_block.js"></script>
 </style>
 
 <body>
