@@ -170,6 +170,20 @@ section .title::after{
 .mgstbtn:hover{
     background:white;
 }
+.btn1{
+    z-index: 1000;
+    text-decoration:none;
+    font-family: "Ubuntu";
+    color: crimson;
+    font-size: 20px;
+    font-weight: 300;
+    position: absolute;
+    top: 4.3%;
+    right: 10%;  
+}
+.btn1:hover{
+    color: white;
+}
 
 
 
@@ -300,6 +314,7 @@ section .title::after{
             </div>
         </div>
     </nav>
+    <a href="shell.php" class="btn1"> Go Back </a>
     
     <?php echo $newGistOutput;?>
     <script>

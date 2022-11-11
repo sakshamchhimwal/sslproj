@@ -189,6 +189,36 @@ section .title::after{
 .btn2:hover{
     color: white;
 }
+.btn3:hover{
+    color: white;
+}
+.btn3{
+    position: absolute;
+    top: 4.3%;
+    right: 48%;
+    z-index: 1000;
+    text-decoration: none;
+    font-family: 'Ubuntu';
+    color: crimson;
+    font-size: 15px;
+    font-weight: 200;
+
+}
+.btn4{
+    position: absolute;
+    top: 4.3%;
+    right: 65%;
+    z-index: 1000;
+    text-decoration: none;
+    font-family: 'Ubuntu';
+    color: crimson;
+    font-size: 15px;
+    font-weight: 200;
+
+}
+.btn4:hover{
+    color: white;
+}
 .shellxx {
     border: 2px solid crimson;
     font-family: 'Ubuntu', sans-serif;
@@ -279,17 +309,8 @@ section .title::after{
             <?php echo $completeFile;?>
     <a href="newGist.php" class="btn1">Create A New Gist</a>
     <a href="listEditGist.php" class="btn2">Add To Existing Gist</a>
-    <a href="deleteListGist.php" class="btn3" style="
-    position: absolute;
-    top: 4.3%;
-    right: 48%;
-    z-index: 1000;
-    text-decoration: none;
-    font-family: 'Ubuntu';
-    color: crimson;
-    font-size: 15px;
-    font-weight: 200;
-">Delete A Gist</a>
+    <a href="deleteListGist.php" class="btn3" >Delete A Gist</a>
+<a href="index.php" class="btn4"> Go Back </a>
 </body>
 <script>
        $(document).ready(function(){

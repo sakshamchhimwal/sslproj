@@ -145,6 +145,20 @@ section .title::after{
 .navbar.sticky .menu li a:hover{
     color: #fff;
 }   
+.btn1{
+    z-index: 1000;
+    text-decoration:none;
+    font-family: "Ubuntu";
+    color: crimson;
+    font-size: 20px;
+    font-weight: 300;
+    position: absolute;
+    top: 4.3%;
+    right: 10%;  
+}
+.btn1:hover{
+    color: white;
+}
 </style>
 <?php
     function getAllGists(){
@@ -230,6 +244,7 @@ section .title::after{
     border-radius: 6px;
     background: crimson;">Edit</button>
 </form>
+<a href="shell.php" class="btn1"> Go Back </a>
 
 </body>
 <script>
