@@ -30,7 +30,7 @@ session_start();
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-
+    color: white;
 }
 
 html {
@@ -146,7 +146,31 @@ html {
         </div>
     </pre>
     </form>
-    <a href="makeBlock.php" ><button style="    margin-left: 30%;
+
+    <pre id="output" style="margin-left: 30%;
+font-size: 20px;
+border: 2px solid crimson;
+width: 25%;
+padding: 10px;">
+
+</pre>'<br>
+    <br>'
+
+    <button onClick=runCode() style="   margin-left:30%;
+    margin-top: 10px;
+    padding: 8px;
+    color: white;
+    background: crimson;
+    border: 2px solid crimson;
+    border-radius: 6px;
+    width: 20%;
+    font-size: 20px;">Execute</button>
+
+    <br>
+    <br>
+    <a href="makeBlock.php" target="_blank" style=" margin-left:30.5%;
+    margin-top: 10px;
+    
     padding: 8px;
     color: white;
     background: crimson;
@@ -155,6 +179,7 @@ html {
     width: 25%;
     font-size: 20px;
     margin-bottom: 10px" target="_blank">Make GUI</button></a>
+
 </body>
 <script>
 // $(document).ready(function() {
@@ -693,6 +718,12 @@ function keyPressed(e) {
         console.log(document.cookie);
         // console.log(document.cookie.split(";"));
     }
+}
+async function runCode() {
+    let pyodide = await loadPyodide();
+    code = document.getElementById("inputArea")["value"];
+    let result = pyodide.runPython(code);
+    document.getElementById("output").innerHTML += "\n" + result;
 }
 </script>
 

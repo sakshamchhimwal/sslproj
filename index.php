@@ -33,7 +33,7 @@ if (isset($accessToken)) {
         // Render Github profile data
 
         $GLOBALS['output'] .= '<div class="total"
-        style=" background : rgb(27,27,27);"><div class="Heading"><h2><h1 class="git">GitHub</h1> <h2 class="git2">Account Details</h2></h2></div>';
+        style=" background : rgb(27,27,27);"><div class="Heading"><h2><h1 class="git" style="font-size: 45px;color: #F2AA4CFF;font-weight: 150;">GitHub</h1> <h2 class="git2">Account Details</h2></h2></div>';
         $GLOBALS['output'] .= '<div class="ac-data">';
         $GLOBALS['output'] .= '<div class="wrapperxx"><div class="img1" style="    margin-right: 10%;
         border: 2px solid crimson;
@@ -146,6 +146,43 @@ function getOutput()
 </head>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+/* CSS */
+.button-24 {
+    background: #FF4742;
+    border: 1px solid #FF4742;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+}
+
+.button-24:hover,
+.button-24:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #FF4742;
+}
+
+.button-24:active {
+    opacity: .5;
+}
 
 * {
     margin: 0;

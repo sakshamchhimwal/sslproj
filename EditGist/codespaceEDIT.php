@@ -98,6 +98,7 @@ html {
 .navbar.sticky .menu li a:hover {
     color: #fff;
 }
+
 .btn1{
     z-index: 1000;
     text-decoration:none;
@@ -146,7 +147,9 @@ html {
 
 <body>
     <script src="../highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+    <script>
+    hljs.highlightAll();
+    </script>
     <nav class="navbar">
         <div class="max-width">
             <div class="logo"><a href="#">Code<span>Space</span></a></div>
