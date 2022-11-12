@@ -21,6 +21,7 @@
         curl_setopt($ch, CURLOPT_POSTFIELDS, $postField);
         $result = curl_exec($ch);
         $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
         if ($http_code!=200) {
             echo $accToken;
             echo '<br>';
@@ -31,13 +32,13 @@
             echo 'Error:' . curl_error($ch);
             echo $http_code;
         }else{
-            echo 'Push Successful';
+            echo $postField;
             // print_r($postField);
             // print_r(json_decode($result)); 
-            header("Location:../shell.php");
+            // header("Location:../shell.php");
 
         }
-        curl_close($ch);
+        
     }
 ?>
 <!DOCTYPE html>

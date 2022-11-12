@@ -146,7 +146,15 @@ html {
         </div>
     </pre>
     </form>
-    <a href="makeBlock.php" target="_blank">Make GUI</a>
+    <a href="makeBlock.php" ><button style="    margin-left: 30%;
+    padding: 8px;
+    color: white;
+    background: crimson;
+    border: 2px solid crimson;
+    border-radius: 6px;
+    width: 25%;
+    font-size: 20px;
+    margin-bottom: 10px" target="_blank">Make GUI</button></a>
 </body>
 <script>
 // $(document).ready(function() {
@@ -668,6 +676,7 @@ function keyPressed(e) {
         // document.cookie = "while_array = " + while_array + ";SameSite=None; Secure";
         // setCookie("funcNames", SON.strinfigy(func_name_array), 365);
         codee = codee.split("\n").join("\\join");
+        codee = codee.split("\t").join("    ");
         // document.cookie = "xcode = " + codee + ";SameSite=None; Secure";
         myJsonObj = {
             xcode: codee,

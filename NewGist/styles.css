@@ -15,8 +15,9 @@ svg {
   border-width: 2px;
 }
 
+
 text {
   font-family: monospace;
-  font-size: 14px;
+  font-size: 20px;
   fill: white;
 }

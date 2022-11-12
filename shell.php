@@ -306,11 +306,12 @@ foreach (getAllGists() as $gist) {
         // $existingGist.=$i.')';//idhar laga
         $existingGist .= '<h3>' . $filename->filename . '</h3><br>';
         $existingGist .= '<br>'; //idhar laga
-        $codestr = htmlspecialchars(file_get_contents($filename->raw_url));
+        $codestr = htmlspecialchars_decode(file_get_contents($filename->raw_url));
+        $senCodeStr = $codestr;
         $codestr = substr($codestr, 0, 250);
-        $existingGist .= '<pre><code class="language-python" id="codeBox__">' . $codestr . '</code></pre><a href="./EditGist/checkYourGist.php"><div class="read">...</div></a><br>';
+        $existingGist .= '<pre><code class="language-python" id="codeBox__">' . $codestr . '</code></pre><form target="_blank" method="get" action="./EditGist/checkYourGist.php"><input type=hidden name="link" value="'.$filename->raw_url .'"/><button type = "submit">View</button></form><br>';
         $existingGist .= "</div>";
-        $_SESSION['flink'] = $filename -> raw_url;
+        // $_SESSION['flink'] = $filename -> raw_url;
         $existingGist .= '<p>' . $filename->raw_url . '</p>';
     }
     $completeFile .= $existingGist;
@@ -346,6 +347,9 @@ $(document).ready(function() {
 
     })
 });
+
+
+
 </script>
 
 
