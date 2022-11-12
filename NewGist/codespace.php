@@ -159,8 +159,8 @@ border: 2px solid crimson;
 width: 25%;
 padding: 10px;">
 
-</pre>'<br>
-    <br>'
+</pre><br>
+    <br>
 
     <button onClick=runCode() style="   margin-left:30%;
     margin-top: 10px;
