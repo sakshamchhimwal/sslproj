@@ -715,7 +715,7 @@ function keyPressed(e) {
         // console.log(strip_code);
         // console.log(if_dict);
         // console.log(for_list);
-        console.log(else_array);
+        // console.log(else_array);
         // console.log(fun_dict);
         // console.log(while_array);
         // store = (store, true);
@@ -724,17 +724,40 @@ function keyPressed(e) {
         func_name_array = func_name_array.toString();
         if_dict = if_dict.toString();
         else_array = else_array.toString();
-        for_list = for_list.toString();
-        while_array = while_array.toString();
-        document.cookie = "funcNames = " + func_name_array + ";SameSite=None; Secure";
-        document.cookie = "defLocs = " + fun_dict + ";SameSite=None; Secure";
-        document.cookie = "ifLocs = " + if_dict + ";SameSite=None; Secure";
-        document.cookie = "elseLocs = " + else_array + ";SameSite=None; Secure";
-        document.cookie = "for_list = " + for_list + ";SameSite=None; Secure";
-        document.cookie = "while_array = " + while_array + ";SameSite=None; Secure";
+        forLoc = for_list.toString();
+        whileLoc = while_array.toString();
+        // cookies.set('funcNames', JSON.strinfigy(func_name_array));
+        // cookies.set('defLocs', JSON.strinfigy(fun_dict));
+        // cookies.set('ifLocs', JSON.strinfigy(if_dict));
+        // cookies.set('elseLocs', JSON.strinfigy(else_array));
+        // cookies.set('for_list', JSON.strinfigy(for_list));
+        // cookies.set('while_array', JSON.strinfigy(while_array));
+        // document.cookie = "funcNames = " + func_name_array +
+        //     ";defLocs = " + fun_dict + ";ifLocs = " + if_dict +
+        //     ";elseLocs = " + else_array + ";for_list = " + for_list +
+        //     ";while_array = " + while_array + ";SameSite=None; Secure";
+        // document.cookie = "defLocs = " + fun_dict + ";SameSite=None; Secure";
+        // document.cookie = "ifLocs = " + if_dict + ";SameSite=None; Secure";
+        // document.cookie = "elseLocs = " + else_array + ";SameSite=None; Secure";
+        // document.cookie = "for_list = " + for_list + ";SameSite=None; Secure";
+        // document.cookie = "while_array = " + while_array + ";SameSite=None; Secure";
+        // setCookie("funcNames", SON.strinfigy(func_name_array), 365);
         codee = codee.split("\n").join("\\join");
-        document.cookie = "xcode = " + codee + ";SameSite=None; Secure";
-        console.log(document.cookie.split(";"));
+        // document.cookie = "xcode = " + codee + ";SameSite=None; Secure";
+        myJsonObj = {
+            xcode: codee,
+            funcNames: func_name_array,
+            defLocs: fun_dict,
+            ifLocs: if_dict,
+            elseLocs: else_array,
+            for_list: forLoc,
+            while_array: whileLoc
+        }
+        // console.log("check cooki");
+        // console.log(JSON.stringify(myJsonObj));
+        document.cookie = "codeDetail = " + JSON.stringify(myJsonObj) + ";SameSite=None; Secure";
+        console.log(document.cookie);
+        // console.log(document.cookie.split(";"));
     }
 }
 </script>
