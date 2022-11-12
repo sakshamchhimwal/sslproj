@@ -1,0 +1,18 @@
+def saksham(saks):
+	i=saks
+	for j in range(3,10):
+		i+=j
+		print(j**3)
+	if(i>103):
+		print("xnxx")
+	if(i==34):
+		print("redtube")
+	else:
+		print("hqporner")
+def sexy(sex):
+	if(sex=="Eva"):
+		saksham(34)
+	else:
+		saksham(0)
+sexy("Mia")
+sexy("Eva")
