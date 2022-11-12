@@ -30,7 +30,7 @@ session_start();
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-
+    color: white;
 }
 
 html {
@@ -221,7 +221,36 @@ section .title::after {
         </div>
     </pre>
     </form>
-    <a href="makeBlock.php" target="_blank">Make GUI</a>
+    <pre id="output" style="margin-left: 30%;
+font-size: 20px;
+border: 2px solid crimson;
+width: 25%;
+padding: 10px;">
+
+</pre>'<br>
+    <br>'
+
+    <button onClick=runCode() style="   margin-left:30%;
+    margin-top: 10px;
+    padding: 8px;
+    color: white;
+    background: crimson;
+    border: 2px solid crimson;
+    border-radius: 6px;
+    width: 20%;
+    font-size: 20px;">Execute</button>
+
+    <br>
+    <br>
+    <a href="makeBlock.php" target="_blank" style=" margin-left:30.5%;
+    margin-top: 10px;
+    padding: 8px;
+    color: white;
+    background: crimson;
+    border: 2px solid crimson;
+    border-radius: 6px;
+    width: 25%;
+    font-size: 20px;">Make GUI</a>
 </body>
 <script>
 // $(document).ready(function() {
@@ -743,6 +772,7 @@ function keyPressed(e) {
         // document.cookie = "while_array = " + while_array + ";SameSite=None; Secure";
         // setCookie("funcNames", SON.strinfigy(func_name_array), 365);
         codee = codee.split("\n").join("\\join");
+        codee = codee.split("\t").join("    ");
         // document.cookie = "xcode = " + codee + ";SameSite=None; Secure";
         myJsonObj = {
             xcode: codee,
@@ -759,6 +789,12 @@ function keyPressed(e) {
         console.log(document.cookie);
         // console.log(document.cookie.split(";"));
     }
+}
+async function runCode() {
+    let pyodide = await loadPyodide();
+    code = document.getElementById("inputArea")["value"];
+    let result = pyodide.runPython(code);
+    document.getElementById("output").innerHTML += "\n" + result;
 }
 </script>
 

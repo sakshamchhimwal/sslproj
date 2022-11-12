@@ -320,7 +320,10 @@ function makeBlock(blockName, start, end, multi) {
         }
     }
     console.log(x);
-    const conSline = x[0][0];
+    let conSline;
+    if (x.length != 0) {
+        conSline = x[0][0];
+    }
     console.log(conSline);
     for (let i = 0; i < x.length; i++) {
         const element = x[i];
