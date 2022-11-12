@@ -1,7 +1,7 @@
 <?php
     session_start();
-    $funcName = $_COOKIE['funcNames'];
-    $funcName = explode(",",$funcName);
+    // $funcName = $_COOKIE['funcNames'];
+    // $funcName = explode(",",$funcName);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,12 +31,14 @@ const svg = document.querySelector("svg");
 const svgns = "http://www.w3.org/2000/svg";
 let lastx = 75;
 let lasty = 5;
-let funcList = decodeURIComponent(document.cookie).split(";")[0].slice(10, ).trim().split(",");
-let defList = decodeURIComponent(document.cookie).split(";")[1].slice(9, ).trim().split(",");
-let ifList = decodeURIComponent(document.cookie).split(";")[2].slice(8, ).trim().split(",");
-let elseList = decodeURIComponent(document.cookie).split(";")[3].slice(10, ).trim().split(",");
-let forList = decodeURIComponent(document.cookie).split(";")[4].slice(10, ).trim().split(",");
-let whileList = decodeURIComponent(document.cookie).split(";")[5].slice(13, ).trim().split(",");
+const myJsonObj = JSON.parse(decodeURIComponent(document.cookie).split(";")[0].slice(11, ));
+console.log(myJsonObj);
+let funcList = myJsonObj['funcNames'].split(",");
+let defList = myJsonObj['defLocs'].split(",");
+let ifList = myJsonObj['ifLocs'].split(",");
+let elseList = myJsonObj['elseLocs'].split(",");
+let forList = myJsonObj['for_list'].split(",");
+let whileList = myJsonObj['while_array'].split(",");
 
 function getHeight(sLine, eLine, conValue) {
     return (eLine - sLine) * conValue;
