@@ -1,5 +1,11 @@
 <?php
     session_start();
+    if(!isset($_SESSION['access_token'])){
+        header("Location:../index.php");
+    }
+?>
+
+<?php
     $accToken = $_SESSION['access_token'];
     // $gistLink = explode('/',$_SESSION['newGistData']->url);
     // $gistId=end($gistLink);

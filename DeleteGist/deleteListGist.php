@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if(!isset($_SESSION['access_token'])){
+        header("Location:../index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en" style="background:black;">
