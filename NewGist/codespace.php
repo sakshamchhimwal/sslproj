@@ -1,5 +1,8 @@
 <?php
-session_start();
+    session_start();
+    if(!isset($_SESSION['access_token'])){
+        header("Location:../index.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -95,18 +98,20 @@ html {
 .navbar.sticky .menu li a:hover {
     color: #fff;
 }
-.btn1{
+
+.btn1 {
     z-index: 1000;
-    text-decoration:none;
+    text-decoration: none;
     font-family: "Ubuntu";
     color: crimson;
     font-size: 20px;
     font-weight: 300;
     position: absolute;
     top: 4.3%;
-    right: 10%;  
+    right: 10%;
 }
-.btn1:hover{
+
+.btn1:hover {
     color: white;
 }
 </style>
@@ -701,7 +706,7 @@ function keyPressed(e) {
         // document.cookie = "for_list = " + for_list + ";SameSite=None; Secure";
         // document.cookie = "while_array = " + while_array + ";SameSite=None; Secure";
         // setCookie("funcNames", SON.strinfigy(func_name_array), 365);
-        codee = codee.split("\n").join("\\join");
+        codee = codee.split("\r\n").join("\\join");
         codee = codee.split("\t").join("    ");
         // document.cookie = "xcode = " + codee + ";SameSite=None; Secure";
         myJsonObj = {

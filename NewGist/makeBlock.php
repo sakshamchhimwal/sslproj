@@ -1,7 +1,8 @@
 <?php
     session_start();
-    // $funcName = $_COOKIE['funcNames'];
-    // $funcName = explode(",",$funcName);
+    if(!isset($_SESSION['access_token'])){
+        header("Location:../index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en" style="background: black;">

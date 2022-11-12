@@ -1,5 +1,10 @@
 <?php
     session_start();
+    if(!isset($_SESSION['access_token'])){
+        header("Location:../index.php");
+    }
+?>
+<?php
     $accToken = $_SESSION['access_token'];
     $ch = curl_init();
     $gistId = explode('/',$_GET['gistSelect'])[0];
@@ -30,7 +35,8 @@
         }else{
             // print_r($postField);
             echo "Delete Successful";
-                $redLoc='../shell.php';
+                // $redLoc='../shell.php';
+                $redLoc='./deleteListGist.php';
             header("Location:".$redLoc);
         }
     curl_close($ch);

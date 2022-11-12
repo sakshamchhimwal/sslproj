@@ -1,5 +1,10 @@
 <?php
     session_start();
+    if(!isset($_SESSION['access_token'])){
+        header("Location:../index.php");
+    }
+?>
+<?php
     $code = htmlspecialchars($_COOKIE['xcode']);
     $code = str_replace("&quot;",'\"',str_replace("&#039;",'\'',htmlspecialchars(str_replace('\\join','\r\n',$code))));
     // print_r($_SESSION['editGistDetails']);

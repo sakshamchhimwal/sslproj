@@ -10,6 +10,7 @@ unset($_SESSION['state']);
 
 // Remove user data from session
 unset($_SESSION['userData']);
+session_destroy();
 
 // Redirect to the homepage
 header("Location:index.php");
