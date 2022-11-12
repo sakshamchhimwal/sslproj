@@ -181,78 +181,6 @@ section .title::after {
     color: #fff;
 }
 
-/* Some of the styling added*/
-
-.hljs {
-    display: block;
-    overflow-x: auto;
-    padding: 0.5em;
-    background: #282a36;
-}
-
-.hljs-built_in,
-.hljs-selector-tag,
-.hljs-section,
-.hljs-link {
-    color: #8be9fd;
-}
-
-.hljs-keyword {
-    color: #ff79c6;
-}
-
-.hljs,
-.hljs-subst {
-    color: #f8f8f2;
-}
-
-.hljs-title,
-.hljs-attr,
-.hljs-meta-keyword {
-    font-style: italic;
-    color: #50fa7b;
-}
-
-.hljs-string,
-.hljs-meta,
-.hljs-name,
-.hljs-type,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition,
-.hljs-variable,
-.hljs-template-tag,
-.hljs-template-variable {
-    color: #f1fa8c;
-}
-
-.hljs-comment,
-.hljs-quote,
-.hljs-deletion {
-    color: #6272a4;
-}
-
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-title,
-.hljs-section,
-.hljs-doctag,
-.hljs-type,
-.hljs-name,
-.hljs-strong {
-    font-weight: bold;
-}
-
-.hljs-literal,
-.hljs-number {
-    color: #bd93f9;
-}
-
-.hljs-emphasis {
-    font-style: italic;
-}
-
 </style>
 <?php
     if (isset($_GET['gistSelect'])) {
@@ -273,7 +201,7 @@ section .title::after {
         
         $code = htmlspecialchars_decode(file_get_contents(json_decode($api_response)->files->$gistName->raw_url));
         $code = '<pre style="margin: 100px;
-        padding: 2px;"><code class="language-python"><textarea rows=40 cols=100 name="editCode" id="code"
+        padding: 2px;"><textarea rows=40 cols=100 name="editCode" id="code"
         style="border: 2px solid crimson;
         border-radius: 6px;
         color: white;
@@ -281,7 +209,7 @@ section .title::after {
         resize: none;
         height:70%;
         background: rgb(25, 24, 24);
-        font-size:20px">'.$code.'</textarea></code></pre>';
+        font-size:20px">'.$code.'</textarea></pre>';
     }
 ?>
 
