@@ -713,10 +713,10 @@ function keyPressed(e) {
         // console.log(code);
         // console.log("hi");
         // console.log(strip_code);
-        console.log(if_dict);
+        // console.log(if_dict);
         // console.log(for_list);
-        // console.log(else_array);
-        console.log(fun_dict);
+        console.log(else_array);
+        // console.log(fun_dict);
         // console.log(while_array);
         // store = (store, true);
         // setcookie("funcName", store);
@@ -724,10 +724,14 @@ function keyPressed(e) {
         func_name_array = func_name_array.toString();
         if_dict = if_dict.toString();
         else_array = else_array.toString();
+        for_list = for_list.toString();
+        while_array = while_array.toString();
         document.cookie = "funcNames = " + func_name_array + ";SameSite=None; Secure";
         document.cookie = "defLocs = " + fun_dict + ";SameSite=None; Secure";
         document.cookie = "ifLocs = " + if_dict + ";SameSite=None; Secure";
         document.cookie = "elseLocs = " + else_array + ";SameSite=None; Secure";
+        document.cookie = "for_list = " + for_list + ";SameSite=None; Secure";
+        document.cookie = "while_array = " + while_array + ";SameSite=None; Secure";
         codee = codee.split("\n").join("\\join");
         document.cookie = "xcode = " + codee + ";SameSite=None; Secure";
         console.log(document.cookie.split(";"));
