@@ -384,10 +384,14 @@ foreach (getAllGists() as $gist) {
         $existingGist .= '<br>'; //idhar laga
         $codestr = htmlspecialchars(file_get_contents($filename->raw_url));
         $codestr = substr($codestr, 0, 250);
-        $existingGist .= '<pre><code class="language-python" id="codeBox__">' . $codestr . '</code></pre><a href="./EditGist/checkYourGist.php"><div class="read">...</div></a><br>';
-        $existingGist .= "</div>";
-        $_SESSION['flink'] = $filename -> raw_url;
-        $existingGist .= '<p>' . $filename->raw_url . '</p>';
+        $existingGist .= '<pre><code class="language-python" id="codeBox__">' . $codestr . '</code></pre><br>';
+        $existingGist .= '<form method="post" action="./EditGist/checkYourGist.php">
+    <input type="hidden" name="varname" value="'. $filename->raw_url .'">
+    <input type="submit" value="See the code">
+    </form>';
+    $existingGist .= "</div><br>";
+        //$_SESSION['flink'] = $filename -> raw_url;
+        //$existingGist .= '<p>' . $filename->raw_url . '</p>';
     }
     $completeFile .= $existingGist;
 }
