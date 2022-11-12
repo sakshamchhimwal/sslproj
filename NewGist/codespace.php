@@ -121,7 +121,7 @@ html {
             </div>
         </div>
     </nav>
-    <a href="../shell.php" class="btn1"> Go Back </a>
+    <a href="../shell.php" class="btn1"> Go To Shell </a>
     <form action="../NewGist/insertgist.php" method="post">
         <pre style="margin: 100px;
     padding: 2px;">

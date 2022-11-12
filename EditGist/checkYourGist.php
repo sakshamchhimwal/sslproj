@@ -2,7 +2,7 @@
     session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background:black;">
 
 <head>
     <meta charset="UTF-8">
@@ -97,9 +97,33 @@
       $fname = $_POST['varname'] ;
       $content = htmlspecialchars(file_get_contents($fname));
       echo "<div><pre><code class='language-python' id='codeBox__'>".$content."</code></pre></div>";
-      echo "<div><button onclick='copyText_()'>Copy</button></div>";
-      echo '<input type="button" value="Print this page" onClick="window.print()"></br>';
-      echo '<a href="'.$fname.'" target="_blank">For RAW</a>'  ;
+      echo "<div><button onclick='copyText_()'
+      style='margin-left: 30%;
+      padding: 5px;
+      border: 2px solid crimson;
+      border-radius: 6px;
+      width: 20%;
+      color: white;
+      background: crimson;'>Copy</button> </div>";
+      echo '<input type="button" value="Print this page" onClick="window.print()"
+      style="margin-left: 30%;
+      padding: 5px;
+      border: 2px solid crimson;
+      margin-top: 10px;
+      border-radius: 6px;
+      width: 20%;
+      color: white;
+      background: crimson;"></br><br>';
+      echo '<a href="'.$fname.'" target="_blank"
+      style="margin-left: 30%;
+      padding: 5px;
+      border: 2px solid crimson;
+      margin-top: 10px;
+      border-radius: 6px;
+      width: 25%;
+      text-decoration: none;
+      color: white;
+      background: crimson;">For RAW</a>'  ;
     ?>
 
     <script>

@@ -159,7 +159,7 @@ html {
             </div>
         </div>
     </nav>
-    <a href="../shell.php" class="btn1"> Go Back </a>
+    <a href="../shell.php" class="btn1"> Go to Shell </a>
     <form method="get" action="../EditGist/insertEDITgist.php">
         <?php echo $code;?>
         <button type="submit" onClick=makeCooki() style="    margin-left: 30%;

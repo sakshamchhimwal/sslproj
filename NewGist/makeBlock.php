@@ -126,16 +126,6 @@ text {
 </style>
 
 <body style="background:black ;">
-<nav class="navbar">
-        <div class="max-width">
-            <div class="logo"><a href="#">Code<span>Space</span></a></div>
-
-            <div class="menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </nav>
-    <a href="../shell.php" class="btn1"> Go Back </a>
 
     <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
         <rect width="100%" height="100%" fill="#000"/>

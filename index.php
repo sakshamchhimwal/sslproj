@@ -61,14 +61,14 @@ if (isset($accessToken)) {
         background: crimson;
         border-radius: 7px;
         margin-left: 10px;"> <a href="' . $userData['link'] . '" target="_blank">Click to visit</a></p></div>';
-        $GLOBALS['output'] .= '<div class="Shellstyle"><p>Proceed to Shell <button class="bottombtn" style="    margin: 3px;
+        $GLOBALS['output'] .= '<div class="Shellstyle"><p>Proceed to Gists <button class="bottombtn" style="    margin: 3px;
         padding: 3px;
         border: 2px solid crimson;
         color: white;
         text-decoration: none;
         background: crimson;
         border-radius: 7px;
-        margin-left: 10px;"><a href="shell.php">Shell</a></p></button></div>';
+        margin-left: 10px;"><a href="shell.php">Gists</a></p></button></div>';
         $GLOBALS['output'] .= '<div class="Shellstyle"><p>Logout from Github<button class="bottombtn" style="    margin: 3px;
         padding: 3px;
         border: 2px solid crimson;

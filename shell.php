@@ -372,7 +372,12 @@ foreach (getAllGists() as $gist) {
         $existingGist .= '<pre><code class="language-python" id="codeBox__">' . $codestr . '</code></pre><br>';
         $existingGist .= '<form method="post" action="./EditGist/checkYourGist.php">
     <input type="hidden" name="varname" value="'. $filename->raw_url .'">
-    <input type="submit" class="button-75" value="See the code">
+    <input type="submit" class="button-75" value="See the code"
+    style="border: 2px solid crimson;
+    border-radius: 6px;
+    color: white;
+    background: crimson;
+    padding:3px;">
     </form>';
     $existingGist .= "</div><br>";
         //$_SESSION['flink'] = $filename -> raw_url;
