@@ -328,7 +328,8 @@ section .title::after {
 </style>
 
 <body>
-    <script src=".\highlight.min.js"></Script>
+    <script src="highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <nav class="navbar">
         <div class="max-width">
             <div class="logo"><a href="#">Gis<span>ts</span></a></div>
