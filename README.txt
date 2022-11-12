@@ -1,4 +1,5 @@
-Please refer to README.md file on the github for the right details and check our video in Demo.txt file befor using the tool 
+Please refer to README.md file on the github for properly formatted file 
+and check our video in Demo.txt file befor using the tool 
 
 CodeSpace
 =========
