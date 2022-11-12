@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if(!isset($_SESSION['access_token'])){
+        header("Location:../index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en" style="background:black;">
@@ -99,18 +102,19 @@ html {
     color: #fff;
 }
 
-.btn1{
+.btn1 {
     z-index: 1000;
-    text-decoration:none;
+    text-decoration: none;
     font-family: "Ubuntu";
     color: crimson;
     font-size: 20px;
     font-weight: 300;
     position: absolute;
     top: 4.3%;
-    right: 10%;  
+    right: 10%;
 }
-.btn1:hover{
+
+.btn1:hover {
     color: white;
 }
 </style>
@@ -191,6 +195,7 @@ document.getElementById('code').addEventListener('keydown', function(e) {
             this.selectionEnd = start + 1;
     }
 });
+
 function keyPressed(e) {
     if (e["key"] === "Enter") {
         makeCooki();

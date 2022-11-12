@@ -1,12 +1,20 @@
 <?php
     session_start();
     $accToken = $_SESSION['access_token'];
-    $gistLink = explode('/',$_SESSION['newGistData']->url);
-    $gistId=end($gistLink);
-    if(isset($accToken) && isset($_COOKIE['xcode'])){
-        $code = $_COOKIE['ycode'];
-        $code = str_replace("&quot;",'\"',str_replace("&#039;",'\'',htmlspecialchars(str_replace('\\join','\r\n',$code))));
-        $postField  ='{"description":"'.$_SESSION['gistDetails']['desc'].'","files":{"'.$_SESSION['gistDetails']['fname'].'":{"content":"'.$code.'"}}}';
+    // $gistLink = explode('/',$_SESSION['newGistData']->url);
+    // $gistId=end($gistLink);
+    if(isset($accToken)){
+        // echo $_COOKIE['codeDetail'];
+        $code = explode(",",$_COOKIE['codeDetail']);
+        $len = strlen($code[0]);
+        $code = substr($code[0],9,$len-1);
+        echo $code;
+        $gistId = $_SESSION['newGistData']->url;
+        $gistId = explode("/",$gistId)[4];
+        // echo $gistId;
+        $code = str_replace('\\join','\r\n',$code);
+        echo $code;
+        $postField  ='{"description":"'.$_SESSION['gistDetails']['desc'].'","files":{"'.$_SESSION['gistDetails']['fname'].'":{"content":'.$code.'}}}';
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, 'https://api.github.com/gists/'.$gistId);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -32,10 +40,10 @@
             echo 'Error:' . curl_error($ch);
             echo $http_code;
         }else{
-            echo $postField;
+            echo $http_code;
             // print_r($postField);
             // print_r(json_decode($result)); 
-            // header("Location:../shell.php");
+            header("Location:../shell.php");
 
         }
         
