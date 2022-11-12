@@ -4,7 +4,7 @@
     $gistLink = explode('/',$_SESSION['newGistData']->url);
     $gistId=end($gistLink);
     if(isset($accToken) && isset($_COOKIE['xcode'])){
-        $code = $_COOKIE['xcode'];
+        $code = $_COOKIE['ycode'];
         $code = str_replace("&quot;",'\"',str_replace("&#039;",'\'',htmlspecialchars(str_replace('\\join','\r\n',$code))));
         $postField  ='{"description":"'.$_SESSION['gistDetails']['desc'].'","files":{"'.$_SESSION['gistDetails']['fname'].'":{"content":"'.$code.'"}}}';
         $ch = curl_init();

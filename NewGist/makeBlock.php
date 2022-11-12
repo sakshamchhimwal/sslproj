@@ -26,12 +26,14 @@
 <script>
 // targeting the svg itself
 const svg = document.querySelector("svg");
+console.log(decodeURIComponent(document.cookie));
+const myJsonObj = JSON.parse(decodeURIComponent(document.cookie).split(";")[0].slice(11, ));
 
 // variable for the namspace
 const svgns = "http://www.w3.org/2000/svg";
 let lastx = 75;
 let lasty = 5;
-const myJsonObj = JSON.parse(decodeURIComponent(document.cookie).split(";")[0].slice(11, ));
+// const myJsonObj = JSON.parse(decodeURIComponent(document.cookie).split(";")[0].slice(11, ));
 console.log(myJsonObj);
 let funcList = myJsonObj['funcNames'].split(",");
 let defList = myJsonObj['defLocs'].split(",");
@@ -283,7 +285,7 @@ function makeBlock(blockName, start, end, multi) {
     for (let i = 0; i < ifList.length / 2; i++) {
         const element = parseInt(ifList[i]);
         const elementx = parseInt(ifList[i + (ifList.length) / 2]);
-        if (element > start && elementx < end) {
+        if (element > start && element - 1 < end) {
             x.push([element, elementx, 'if']);
         }
     }

@@ -15,7 +15,8 @@ session_start();
     function makeCooki() {
         let code = document.getElementById("inputArea")["value"];
         code = code.split("\n").join("\\join");
-        document.cookie = "xcode = " + code;
+        code = code.split("\t").join("    ");
+        // document.cookie = "ycode = " + code + ";SameSite=None; Secure";
         console.log(document.cookie);
     }
     </script>
@@ -786,16 +787,17 @@ function keyPressed(e) {
         // console.log("check cooki");
         // console.log(JSON.stringify(myJsonObj));
         document.cookie = "codeDetail = " + JSON.stringify(myJsonObj) + ";SameSite=None; Secure";
+        // document.cookie = "ycode = " + codee + ";SameSite=None; Secure";
         console.log(document.cookie);
         // console.log(document.cookie.split(";"));
     }
 }
-async function runCode() {
-    let pyodide = await loadPyodide();
-    code = document.getElementById("inputArea")["value"];
-    let result = pyodide.runPython(code);
-    document.getElementById("output").innerHTML += "\n" + result;
-}
+// async function runCode() {
+//     let pyodide = await loadPyodide();
+//     code = document.getElementById("inputArea")["value"];
+//     let result = pyodide.runPython(code);
+//     document.getElementById("output").innerHTML += "\n" + result;
+// }
 </script>
 
 </html>
