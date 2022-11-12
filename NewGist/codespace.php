@@ -167,8 +167,19 @@ html {
         </div>
     </pre>
     </form>
+<<<<<<< Updated upstream
     <pre id="output"
         style="margin-left: 30%; font-size: 20px; border: 2px solid crimson; width: 25%; padding: 10px;"></pre><br>
+=======
+
+    <pre id="output" style="margin-left: 30%;
+font-size: 20px;
+border: 2px solid crimson;
+width: 25%;
+padding: 10px;">
+
+</pre><br>
+>>>>>>> Stashed changes
     <br>
 
     <button onClick=runCode() style="   margin-left:30%;
