@@ -24,8 +24,6 @@ pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5p
       echo "<div><pre><code class='language-python' id='codeBox__'>".$content."</code></pre></div>";
       echo "<div><button onclick='copyText_()'>Copy</button></div>";
       echo '<input type="button" value="Print this page" onClick="window.print()">';
-
-      echo $fname;
     ?>
 
     <script>
