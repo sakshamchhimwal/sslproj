@@ -14,6 +14,7 @@
 function makeCooki() {
     let code = document.getElementById("code")['value'];
     code = code.split("\n").join("\\join");
+    code = code.split("\t").join("    ");
     document.cookie = "xcode = " + code;
     console.log(document.cookie);
 }
@@ -180,7 +181,6 @@ section .title::after {
 .navbar.sticky .menu li a:hover {
     color: #fff;
 }
-
 </style>
 <?php
     if (isset($_GET['gistSelect'])) {
@@ -215,7 +215,9 @@ section .title::after {
 
 <body>
     <script src="../highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+    <script>
+    hljs.highlightAll();
+    </script>
     <nav class="navbar">
         <div class="max-width">
             <div class="logo"><a href="#">Code<span>Space</span></a></div>

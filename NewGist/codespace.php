@@ -772,6 +772,7 @@ function keyPressed(e) {
         // document.cookie = "while_array = " + while_array + ";SameSite=None; Secure";
         // setCookie("funcNames", SON.strinfigy(func_name_array), 365);
         codee = codee.split("\n").join("\\join");
+        codee = codee.split("\t").join("    ");
         // document.cookie = "xcode = " + codee + ";SameSite=None; Secure";
         myJsonObj = {
             xcode: codee,
