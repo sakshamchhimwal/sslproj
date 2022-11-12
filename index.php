@@ -1,4 +1,67 @@
 <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Create database
+$sql = "CREATE DATABASE IF NOT EXISTS githuboauth;";
+if ($conn->query($sql) === TRUE) {
+    echo "";
+} else {
+    echo "Error creating database: " . $conn->error;
+}
+
+$conn->close();
+?>
+
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "githuboauth";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// sql to create table
+$sql = "CREATE TABLE IF NOT EXISTS `users` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `oauth_provider` enum('github','facebook','google','twitter') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'github',
+    `oauth_uid` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+    `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+    `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+    `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+    `location` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+    `picture` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+    `link` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+    `created` datetime NOT NULL DEFAULT current_timestamp(),
+    `modified` datetime NOT NULL DEFAULT current_timestamp(),
+    PRIMARY KEY (`id`)
+)";
+
+if ($conn->query($sql) === TRUE) {
+    echo "";
+} else {
+    echo "Error creating table: " . $conn->error;
+}
+
+$conn->close();
+?>
+
+
+
+<?php
 session_start();
 
 // Include configuration file
@@ -555,7 +618,6 @@ echo '<li><a href="' . htmlspecialchars($authUrl) . '" class="menu-btn">Log-in</
                 <div class="text-1">Hello, <span class="typing"></span> </div>
                 <div class="text-2">Welcome to Coding space </div>
                 <div class="text-3">Here you can <span class="typing1"></span> </div>
-
             </div>
         </div>
     </section>
