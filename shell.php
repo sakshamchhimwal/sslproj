@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en" style="background:black">
@@ -341,30 +341,31 @@ section .title::after {
     </nav>
 
     <?php
-    function getAllGists(){
-        $apiBase= "https://api.github.com/gists";
-        $accToken = $_SESSION['access_token'];
-        $curl = curl_init();
-        curl_setopt($curl,CURLOPT_URL,$apiBase);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); 
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);  
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/vnd.github+json', 'Authorization: token '. $accToken)); 
-        curl_setopt($curl, CURLOPT_USERAGENT, 'CodeSpace Gists'); 
-        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'GET'); 
-        $api_response = curl_exec($curl); 
-        $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);          
-        if($http_code != 200){ 
-            if (curl_errno($curl)) {  
-                $error_msg = curl_error($curl);  
-            }else{ 
-                $error_msg = $api_response; 
-            } 
-            throw new Exception('Error '.$http_code.': '.$error_msg); 
-        }else{ 
-            return json_decode($api_response); 
-        } 
+function getAllGists()
+{
+    $apiBase = "https://api.github.com/gists";
+    $accToken = $_SESSION['access_token'];
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $apiBase);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/vnd.github+json', 'Authorization: token ' . $accToken));
+    curl_setopt($curl, CURLOPT_USERAGENT, 'CodeSpace Gists');
+    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'GET');
+    $api_response = curl_exec($curl);
+    $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+    if ($http_code != 200) {
+        if (curl_errno($curl)) {
+            $error_msg = curl_error($curl);
+        } else {
+            $error_msg = $api_response;
+        }
+        throw new Exception('Error ' . $http_code . ': ' . $error_msg);
+    } else {
+        return json_decode($api_response);
     }
-    $completeFile="<div class='wrapper' style='
+}
+$completeFile = "<div class='wrapper' style='
     display: grid;
     grid-template-columns: auto;
     row-gap: 20px;
@@ -372,26 +373,28 @@ section .title::after {
     justify-items: start;
     background: black;
 '>";
-    $i=0;
-    foreach(getAllGists() as $gist){
-        $existingGist="";
-        foreach($gist->files as $filename){
-            $existingGist='<div class="shellxx">';
-            $i++;
-            // $existingGist.=$i.')';//idhar laga
-            $existingGist .= '<h3>'.$filename->filename.'</h3><br>';
-            $existingGist.= '<br>';//idhar laga
-            $codestr = htmlspecialchars(file_get_contents($filename->raw_url));
-            $codestr = substr($codestr,0,250);
-            $existingGist.= '<pre><code class="language-python" id="codeBox__">'.$codestr.'</code></pre><a href="'.$filename->raw_url.'"><div class="read">...</div></a><br>';//idhar laga
-            $existingGist.="</div>";
-        }
-        $completeFile.=$existingGist;
+$i = 0;
+foreach (getAllGists() as $gist) {
+    $existingGist = "";
+    foreach ($gist->files as $filename) {
+        $existingGist = '<div class="shellxx">';
+        $i++;
+        // $existingGist.=$i.')';//idhar laga
+        $existingGist .= '<h3>' . $filename->filename . '</h3><br>';
+        $existingGist .= '<br>'; //idhar laga
+        $codestr = htmlspecialchars(file_get_contents($filename->raw_url));
+        $codestr = substr($codestr, 0, 250);
+        $existingGist .= '<pre><code class="language-python" id="codeBox__">' . $codestr . '</code></pre><a href="./EditGist/checkYourGist.php"><div class="read">...</div></a><br>';
+        $existingGist .= "</div>";
+        $_SESSION['flink'] = $filename -> raw_url;
+        $existingGist .= '<p>' . $filename->raw_url . '</p>';
     }
-    $completeFile.="</div>";
-    // echo  $_SESSION['access_token'];
+    $completeFile .= $existingGist;
+}
+$completeFile .= "</div>";
+// echo  $_SESSION['access_token'];
 ?>
-    <?php echo $completeFile;?>
+    <?php echo $completeFile; ?>
     <a href="./NewGist/newGist.php" class="btn1">Create A New Gist</a>
     <a href="./EditGist/listEditGist.php" class="btn2">Add To Existing Gist</a>
     <a href="./DeleteGist/deleteListGist.php" class="btn3" style="
