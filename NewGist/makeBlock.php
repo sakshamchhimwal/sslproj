@@ -16,7 +16,7 @@
     <title>Make Block</title>
 </head>
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
 
 * {
     margin: 0;
@@ -87,49 +87,52 @@ html {
 .navbar.sticky .menu li a:hover {
     color: #fff;
 }
-    .btn1{
+
+.btn1 {
     z-index: 1000;
-    text-decoration:none;
+    text-decoration: none;
     font-family: "Ubuntu";
     color: crimson;
     font-size: 20px;
     font-weight: 300;
     position: absolute;
     top: 4.3%;
-    right: 10%;  
+    right: 10%;
 }
-.btn1:hover{
+
+.btn1:hover {
     color: white;
 }
+
 body {
-  background-color: #353232;
-  font-family: "Source Sans Pro", sans-serif;
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    background-color: #353232;
+    font-family: "Source Sans Pro", sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 svg {
-  border-radius: 0px;
-  border-color: black;
-  border-width: 2px;
+    border-radius: 0px;
+    border-color: black;
+    border-width: 2px;
 }
 
 
 text {
-  font-family: monospace;
-  font-size: 20px;
-  fill: white;
+    font-family: monospace;
+    font-size: 20px;
+    fill: white;
 }
 </style>
 
 <body style="background:black ;">
 
     <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
-        <rect width="100%" height="100%" fill="#000"/>
+        <rect width="100%" height="100%" fill="#000" />
     </svg>
     <button onClick="window.print()" style="    margin-left: 20%;
     margin-right: 20%;
@@ -162,6 +165,7 @@ let ifList = myJsonObj['ifLocs'].split(",");
 let elseList = myJsonObj['elseLocs'].split(",");
 let forList = myJsonObj['for_list'].split(",");
 let whileList = myJsonObj['while_array'].split(",");
+let funcNameList = myJsonObj['funcPArr'].split(",");
 
 function getHeight(sLine, eLine, conValue) {
     return (eLine - sLine) * conValue;
@@ -177,8 +181,8 @@ function makeFor__Manual(sLine, eLine, conSline, multiplier) {
     gsap.set(newRect, {
         attr: {
             x: 80,
-            rx:8,
-            ry:8,
+            rx: 8,
+            ry: 8,
             y: (sLine - conSline + 1) * 30 + (multiplier) * 445,
             height: hei,
             width: 470,
@@ -203,8 +207,8 @@ function makeIf__Manual(sLine, eLine, conSline, multiplier) {
         attr: {
             x: 70,
             y: (sLine - conSline + 1) * 30 + (multiplier) * 445,
-            rx:8,
-            ry:8,
+            rx: 8,
+            ry: 8,
             height: hei,
             width: 520,
             fill: "green",
@@ -230,8 +234,8 @@ function makeElse__Manual(sLine, eLine, conSline, multiplier) {
             x: 70,
             y: (sLine - conSline + 1) * 30 + (multiplier) * 445,
             height: hei,
-            rx:8,
-            ry:8,
+            rx: 8,
+            ry: 8,
             width: 530,
             fill: "blue",
             class: "else",
@@ -335,8 +339,8 @@ function makeFor(totalblock, originalx, originaly) {
         attr: {
             x: clonex,
             y: cloney,
-            rx:10,
-            ry:10,
+            rx: 10,
+            ry: 10,
             width: 300 / totalblock,
             height: 150 / totalblock,
             class: "target",
@@ -384,7 +388,7 @@ function makeWhile(totalblock, originalx, originaly) {
     return clonex;
 }
 
-function makeBlock(blockName, start, end, multi) {
+function makeBlock(blockName, start, end, multi, param) {
     console.log("lastx:" +
         lastx);
     console.log("lasty:" +
@@ -394,8 +398,8 @@ function makeBlock(blockName, start, end, multi) {
         attr: {
             x: lastx,
             y: lasty,
-            rx:6,
-            ry:6,
+            rx: 6,
+            ry: 6,
             width: 500,
             height: 400,
             margin: 5,
@@ -407,7 +411,7 @@ function makeBlock(blockName, start, end, multi) {
     lasty += 425;
     svg.appendChild(newRect);
     let txt = document.createElementNS(svgns, "text");
-    txt.textContent = blockName;
+    txt.textContent = param;
     svg.appendChild(txt);
     gsap.set(txt, {
         x: lastx + 10,
@@ -502,14 +506,12 @@ console.log("else-> " + elseList);
 console.log("for-> " + forList);
 for (let k = 0, j = 0; k < funcList.length; k++, j += 2) {
     console.log(funcList[k]);
-    makeBlock(funcList[k], parseInt(defList[j]), parseInt(defList[j + 1]), k);
+    makeBlock(funcList[k], parseInt(defList[j]), parseInt(defList[j + 1]), k, funcNameList[k]);
 }
 
-function printwin(){
+function printwin() {
     window.print();
 }
-
-
 </script>
 
 </html>

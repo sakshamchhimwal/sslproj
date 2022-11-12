@@ -167,22 +167,22 @@ html {
         </div>
     </pre>
     </form>
-<<<<<<< Updated upstream
-    <pre id="output"
-        style="margin-left: 30%; font-size: 20px; border: 2px solid crimson; width: 25%; padding: 10px;"></pre><br>
-=======
+    <<<<<<< Updated upstream <pre id="output"
+        style="margin-left: 30%; font-size: 20px; border: 2px solid crimson; width: 25%; padding: 10px;">
+        </pre><br>
+        =======
 
-    <pre id="output" style="margin-left: 30%;
+        <pre id="output" style="margin-left: 30%;
 font-size: 20px;
 border: 2px solid crimson;
 width: 25%;
 padding: 10px;">
 
 </pre><br>
->>>>>>> Stashed changes
-    <br>
+        >>>>>>> Stashed changes
+        <br>
 
-    <button onClick=runCode() style="   margin-left:30%;
+        <button onClick=runCode() style="   margin-left:30%;
     margin-top: 10px;
     padding: 8px;
     color: white;
@@ -192,9 +192,9 @@ padding: 10px;">
     width: 20%;
     font-size: 20px;">Execute</button>
 
-    <br>
-    <br>
-    <a href="makeBlock.php" target="_blank" style=" margin-left:30.5%;
+        <br>
+        <br>
+        <a href="makeBlock.php" target="_blank" style=" margin-left:30.5%;
     margin-top: 10px;
     
     padding: 8px;
@@ -695,6 +695,10 @@ function keyPressed(e) {
         let fun_dict = checkDefInCode(strip_code, tab_array, 0);
         let while_array = checkWhileInCode(strip_code, tab_array, 0);
         let func_name_array = get_function_name(strip_code, fun_dict);
+        let funcParamArray = [];
+        for (let i = 0; i < fun_dict.length; i++) {
+            funcParamArray.push(get_func_parameter(strip_code, fun_dict, i));
+        }
         // console.log(code);
         // console.log("hi");
         // console.log(strip_code);
@@ -711,6 +715,7 @@ function keyPressed(e) {
         else_array = else_array.toString();
         forLoc = for_list.toString();
         whileLoc = while_array.toString();
+        funcParamArray = funcParamArray.toString();
         // cookies.set('funcNames', JSON.strinfigy(func_name_array));
         // cookies.set('defLocs', JSON.strinfigy(fun_dict));
         // cookies.set('ifLocs', JSON.strinfigy(if_dict));
@@ -738,6 +743,7 @@ function keyPressed(e) {
             elseLocs: else_array,
             for_list: forLoc,
             while_array: whileLoc,
+            funcPArr: funcParamArray,
             codexyz: codexns
         }
         // console.log("check cooki");
