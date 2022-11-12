@@ -137,7 +137,22 @@ html {
     resize: none;
     background: rgb(25, 24, 24);
 
-}"></textarea>
+}">
+<?php 
+    // if(isset($_COOKIE['codeDetail'])){
+    //     // shell_exec($code.' > run.py');
+    //     // echo shell_exec('python run.py');
+    //     $code = explode(",",$_COOKIE['codeDetail']);
+    //     $code = $code[9];
+    //     $code = explode('"',$code)[3];
+    //     $code = explode('\\n',$code);
+    //     foreach($code as $ee){
+    //         echo $ee;
+    //         echo '\n';
+    //     }
+    // }
+?>
+</textarea>
     </pre>
         <button type="submit" style="    margin-left: 30%;
     padding: 8px;
@@ -152,14 +167,8 @@ html {
         </div>
     </pre>
     </form>
-
-    <pre id="output" style="margin-left: 30%;
-font-size: 20px;
-border: 2px solid crimson;
-width: 25%;
-padding: 10px;">
-
-</pre><br>
+    <pre id="output"
+        style="margin-left: 30%; font-size: 20px; border: 2px solid crimson; width: 25%; padding: 10px;"></pre><br>
     <br>
 
     <button onClick=runCode() style="   margin-left:30%;
@@ -665,6 +674,7 @@ function keyPressed(e) {
     if (e["key"] === "Enter") {
         let codee = document.getElementById("inputArea")["value"];
         let code = document.getElementById("inputArea")["value"];
+        let codexns = document.getElementById("inputArea")["value"];
         let strip_code = StripCode(code);
         let tab_array = TabCount(strip_code);
         //console.log(tab_array);
@@ -716,7 +726,8 @@ function keyPressed(e) {
             ifLocs: if_dict,
             elseLocs: else_array,
             for_list: forLoc,
-            while_array: whileLoc
+            while_array: whileLoc,
+            codexyz: codexns
         }
         // console.log("check cooki");
         // console.log(JSON.stringify(myJsonObj));
@@ -726,12 +737,13 @@ function keyPressed(e) {
         // console.log(document.cookie.split(";"));
     }
 }
-// async function runCode() {
-//     let pyodide = await loadPyodide();
-//     code = document.getElementById("inputArea")["value"];
-//     let result = pyodide.runPython(code);
-//     document.getElementById("output").innerHTML += "\n" + result;
-// }
+
+async function runCode() {
+    let codexns = document.getElementById("inputArea")["value"];
+    let pyodide = await loadPyodide();
+    let result = pyodide.runPython(codexns);
+    document.getElementById('output').innerHTML += result + "<br>";
+}
 </script>
 
 </html>
