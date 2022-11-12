@@ -13,11 +13,21 @@ CodeSpace presents a lot of unique features that come in handy while writing cod
   - Like most of the online IDE(s) this also compiles and executes the code but what most of them lack is code storage in which CodeSpace exceeds them.</br>
 3. CodeVisualisation</br>
   - This works in two parts</br>
-    - _Make Playground Form Code:_ CodeSpace can automatically detect the CodePieces and arrange them as CodeBlocks and provide a visual feedback of how the program executed.</br><br>
-    > A visual image in the hand of an artist is merely a tool to trigger a mental image
-    > 
-    > Same can be said for programmers, this tool will trigger a clarity in your mind
-    - _Make Code Form Playground_ CodeSpace also hold the ability to produce the code form the arranging the Blocks of code in the playground as the user wishes and generates a code automatically from it.</br>
+    - _Make Playground Form Code:_ CodeSpace can automatically detect the CodePieces and arrange them as CodeBlocks and provide a visual feedback of how the program executed.</br>
+
+---
+
+## How to reproduce the CodeSpace in your machine
+
+Either download the zip file of this code and go to the __htdocs__ directry of your machine and unzip it there or go to the __htdocs__ directry via command line and type  `git clone https://github.com/sakshamchhimwal/sslproj.git`. <br>
+> **_NOTE:_** The second option required to have git installed on your machine<br>
+- [ ] The machine running this is required to have an *python* installation.
+
+After setup is complete do the following steps:
+- Open the *XAMPP* control panel and make sure that Apache and SQL server are running.
+- Start your prefered browser and type `http://localhost/sslproj/ ` 
+- You will be greeted with a beautiful home screen.
+
 
 ---
 
