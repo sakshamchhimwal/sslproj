@@ -31,6 +31,15 @@ After setup is complete do the following steps:
 
 ---
 
+## Features of CodeSpace Python Runner Tool
+- It will tell you the number of the functions(with there parameters), if conditionals, for/while loops, nested loops and conditionls. 
+- The JS Scripts to tell the varous features of the python code is present, but not implemented due to unavailability of the time.
+- The python scripts can also run using your local python installation by tweaking `NewGist/Codespace.php` file.
+- You can see and print any of the gist.
+- This tool also work as excellent gists manager as well.
+
+---
+
 ## This Project is submitted by team of 3 members consisting
 - **Shubh Agarwal** (210020047)
 - **Saksham Chhimwal** (210010046)
