@@ -19,11 +19,12 @@ pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5p
     <script>hljs.highlightAll();</script>
 
     <?php
-      $fname = $_SESSION['flink'] ;
+      $fname = $_POST['varname'] ;
       $content = htmlspecialchars(file_get_contents($fname));
       echo "<div><pre><code class='language-python' id='codeBox__'>".$content."</code></pre></div>";
       echo "<div><button onclick='copyText_()'>Copy</button></div>";
-      echo '<input type="button" value="Print this page" onClick="window.print()">';
+      echo '<input type="button" value="Print this page" onClick="window.print()"></br>';
+      echo '<a href="'.$fname.'" target="_blank">For RAW</a>'  ;
     ?>
 
     <script>
