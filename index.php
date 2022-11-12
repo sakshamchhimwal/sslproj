@@ -33,7 +33,7 @@ if (isset($accessToken)) {
         // Render Github profile data
 
         $GLOBALS['output'] .= '<div class="total"
-        style=" background : rgb(27,27,27);"><div class="Heading"><h2><h1 class="git">GitHub</h1> <h2 class="git2">Account Details</h2></h2></div>';
+        style=" background : rgb(27,27,27);"><div class="Heading"><h2><h1 class="git" style="font-size: 45px;color: #F2AA4CFF;font-weight: 150;">GitHub</h1> <h2 class="git2">Account Details</h2></h2></div>';
         $GLOBALS['output'] .= '<div class="ac-data">';
         $GLOBALS['output'] .= '<div class="wrapperxx"><div class="img1" style="    margin-right: 10%;
         border: 2px solid crimson;
@@ -139,7 +139,6 @@ function getOutput()
         integrity="sha512-+YPbXItNhUCZR3fn5KeWPtJrXuoqRYQ4Gd1rIjEFG+h8UJYekebhOMh84vv7q+Y1sy5kdIIVtfftehCiigriMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
-    <link rel="stylesheet" media="screen and (max-width: 1170px)" href="phone.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <link rel="stylesheet"
@@ -147,6 +146,43 @@ function getOutput()
 </head>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+/* CSS */
+.button-24 {
+    background: #FF4742;
+    border: 1px solid #FF4742;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+}
+
+.button-24:hover,
+.button-24:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #FF4742;
+}
+
+.button-24:active {
+    opacity: .5;
+}
 
 * {
     margin: 0;
@@ -163,22 +199,6 @@ img.profileimg {
     border-radius: 100%;
 }
 
-/* custom scroll bar */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #888;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
 
 /* all similar content styling codes */
 section {
@@ -555,12 +575,6 @@ $(document).ready(function() {
             $('.navbar').removeClass("sticky");
         }
 
-        // scroll-up button show/hide script
-        if (this.scrollY > 500) {
-            $('.scroll-up-btn').addClass("show");
-        } else {
-            $('.scroll-up-btn').removeClass("show");
-        }
     });
     var typed = new Typed(".typing", {
         strings: ["Welcome to Code Space", "Start You Journey Here"],

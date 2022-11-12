@@ -23,82 +23,6 @@ html{
     scroll-behavior: smooth;
     background:black;
 }
-/* custom scroll bar */
-::-webkit-scrollbar {
-    width: 10px;
-}
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-::-webkit-scrollbar-thumb {
-    background: #888;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-/* all similar content styling codes */
-section{
-    padding: 100px 0;
-}
-.max-width{
-    max-width: 1300px;
-    padding: 0 80px;
-    margin: auto;
-}
-.about, .services, .skills, .teams, .contact, footer{
-    font-family: 'Poppins', sans-serif;
-}
-.about .about-content,
-.services .serv-content,
-.skills .skills-content,
-.contact .contact-content{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-}
-section .title{
-    position: relative;
-    text-align: center;
-    font-size: 40px;
-    font-weight: 500;
-    margin-bottom: 60px;
-    padding-bottom: 20px;
-    font-family: 'Ubuntu', sans-serif;
-}
-section .title::before{
-    content: "";
-    position: absolute;
-    bottom: 0px;
-    left: 50%;
-    width: 180px;
-    height: 3px;
-    background: #111;
-    transform: translateX(-50%);
-}
-section .title::after{
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    font-size: 20px;
-    color: crimson;
-    padding: 0 5px;
-    background: #fff;
-    transform: translateX(-50%);
-}
-.loginGit{
-    z-index: 1000;
-    text-decoration:none;
-    font-family: "Ubuntu";
-    color: crimson;
-    font-size: 35px;
-    font-weight: 600;
-    position: absolute;
-    top: 3%;
-    right: 4%;
-}
     .navbar{
     width: 100%;
     z-index: 999;
@@ -145,6 +69,20 @@ section .title::after{
 }
 .navbar.sticky .menu li a:hover{
     color: #fff;
+}
+.btn1{
+    z-index: 1000;
+    text-decoration:none;
+    font-family: "Ubuntu";
+    color: crimson;
+    font-size: 20px;
+    font-weight: 300;
+    position: absolute;
+    top: 4.3%;
+    right: 10%;  
+}
+.btn1:hover{
+    color: white;
 }
 </style>
 <?php
@@ -204,6 +142,7 @@ section .title::after{
             </div>
         </div>
     </nav>
+    <a href="../shell.php" class="btn1"> Go Back </a>
     <div>
         <H1 style="
             color: white;

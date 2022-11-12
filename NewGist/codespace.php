@@ -38,96 +38,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* custom scroll bar */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #888;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-/* all similar content styling codes */
-section {
-    padding: 100px 0;
-}
-
-.max-width {
-    max-width: 1300px;
-    padding: 0 80px;
-    margin: auto;
-}
-
-.about,
-.services,
-.skills,
-.teams,
-.contact,
-footer {
-    font-family: 'Poppins', sans-serif;
-}
-
-.about .about-content,
-.services .serv-content,
-.skills .skills-content,
-.contact .contact-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-}
-
-section .title {
-    position: relative;
-    text-align: center;
-    font-size: 40px;
-    font-weight: 500;
-    margin-bottom: 60px;
-    padding-bottom: 20px;
-    font-family: 'Ubuntu', sans-serif;
-}
-
-section .title::before {
-    content: "";
-    position: absolute;
-    bottom: 0px;
-    left: 50%;
-    width: 180px;
-    height: 3px;
-    background: #111;
-    transform: translateX(-50%);
-}
-
-section .title::after {
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    font-size: 20px;
-    color: crimson;
-    padding: 0 5px;
-    background: #fff;
-    transform: translateX(-50%);
-}
-
-.loginGit {
-    z-index: 1000;
-    text-decoration: none;
-    font-family: "Ubuntu";
-    color: crimson;
-    font-size: 35px;
-    font-weight: 600;
-    position: absolute;
-    top: 3%;
-    right: 4%;
-}
 
 .navbar {
     width: 100%;
@@ -185,6 +95,20 @@ section .title::after {
 .navbar.sticky .menu li a:hover {
     color: #fff;
 }
+.btn1{
+    z-index: 1000;
+    text-decoration:none;
+    font-family: "Ubuntu";
+    color: crimson;
+    font-size: 20px;
+    font-weight: 300;
+    position: absolute;
+    top: 4.3%;
+    right: 10%;  
+}
+.btn1:hover{
+    color: white;
+}
 </style>
 
 <body>
@@ -197,6 +121,7 @@ section .title::after {
             </div>
         </div>
     </nav>
+    <a href="../shell.php" class="btn1"> Go Back </a>
     <form action="../NewGist/insertgist.php" method="post">
         <pre style="margin: 100px;
     padding: 2px;">
@@ -222,6 +147,7 @@ section .title::after {
         </div>
     </pre>
     </form>
+
     <pre id="output" style="margin-left: 30%;
 font-size: 20px;
 border: 2px solid crimson;
@@ -245,13 +171,16 @@ padding: 10px;">
     <br>
     <a href="makeBlock.php" target="_blank" style=" margin-left:30.5%;
     margin-top: 10px;
+    
     padding: 8px;
     color: white;
     background: crimson;
     border: 2px solid crimson;
     border-radius: 6px;
     width: 25%;
-    font-size: 20px;">Make GUI</a>
+    font-size: 20px;
+    margin-bottom: 10px" target="_blank">Make GUI</button></a>
+
 </body>
 <script>
 // $(document).ready(function() {

@@ -30,7 +30,7 @@
         }else{
             // print_r($postField);
             echo "Delete Successful";
-            $redLoc='../shell.php';
+                $redLoc='../shell.php';
             header("Location:".$redLoc);
         }
     curl_close($ch);

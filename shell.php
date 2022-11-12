@@ -18,7 +18,6 @@ session_start();
             integrity="sha512-+YPbXItNhUCZR3fn5KeWPtJrXuoqRYQ4Gd1rIjEFG+h8UJYekebhOMh84vv7q+Y1sy5kdIIVtfftehCiigriMQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
-        <link rel="stylesheet" media="screen and (max-width: 1170px)" href="phone.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
         <link rel="stylesheet"
@@ -40,96 +39,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* custom scroll bar */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #888;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-/* all similar content styling codes */
-section {
-    padding: 100px 0;
-}
-
-.max-width {
-    max-width: 1300px;
-    padding: 0 80px;
-    margin: auto;
-}
-
-.about,
-.services,
-.skills,
-.teams,
-.contact,
-footer {
-    font-family: 'Poppins', sans-serif;
-}
-
-.about .about-content,
-.services .serv-content,
-.skills .skills-content,
-.contact .contact-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-}
-
-section .title {
-    position: relative;
-    text-align: center;
-    font-size: 40px;
-    font-weight: 500;
-    margin-bottom: 60px;
-    padding-bottom: 20px;
-    font-family: 'Ubuntu', sans-serif;
-}
-
-section .title::before {
-    content: "";
-    position: absolute;
-    bottom: 0px;
-    left: 50%;
-    width: 180px;
-    height: 3px;
-    background: #111;
-    transform: translateX(-50%);
-}
-
-section .title::after {
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    font-size: 20px;
-    color: crimson;
-    padding: 0 5px;
-    background: #fff;
-    transform: translateX(-50%);
-}
-
-.loginGit {
-    z-index: 1000;
-    text-decoration: none;
-    font-family: "Ubuntu";
-    color: crimson;
-    font-size: 35px;
-    font-weight: 600;
-    position: absolute;
-    top: 3%;
-    right: 4%;
-}
 
 .navbar {
     width: 100%;
@@ -224,6 +133,21 @@ section .title::after {
 }
 
 .btn2:hover {
+    color: white;
+}
+.btn4{
+    position: absolute;
+    top: 4.3%;
+    right: 65%;
+    z-index: 1000;
+    text-decoration: none;
+    font-family: 'Ubuntu';
+    color: crimson;
+    font-size: 15px;
+    font-weight: 200;
+
+}
+.btn4:hover{
     color: white;
 }
 
@@ -325,10 +249,70 @@ section .title::after {
 .hljs-emphasis {
     font-style: italic;
 }
+
+<!-- HTML !-->
+<button class="button-75" role="button"><span class="text">Button 75</span></button>
+
+/* CSS */
+.button-75 {
+    align-items: center;
+    background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
+    border: 0;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    font-family: "Codec cold",sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    height: 54px;
+    justify-content: center;
+    letter-spacing: .4px;
+    line-height: 1;
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 3px;
+    text-decoration: none;
+    text-transform: uppercase;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-75:active {
+    outline: 0;
+}
+
+.button-75:hover {
+    outline: 0;
+}
+
+.button-75 span {
+    transition: all 200ms;
+}
+
+.button-75:hover span {
+    transform: scale(.9);
+    opacity: .75;
+}
+
+@media screen and (max-width: 991px) {
+    .button-75 {
+        font-size: 15px;
+        height: 50px;
+    }
+
+    .button-75 span {
+        line-height: 50px;
+    }
+}
 </style>
 
 <body>
-    <script src="highlight.min.js"></script>
+    <script src=".\highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
     <nav class="navbar">
         <div class="max-width">
@@ -382,12 +366,13 @@ foreach (getAllGists() as $gist) {
         // $existingGist.=$i.')';//idhar laga
         $existingGist .= '<h3>' . $filename->filename . '</h3><br>';
         $existingGist .= '<br>'; //idhar laga
-        $codestr = htmlspecialchars(file_get_contents($filename->raw_url));
+        $codestr = htmlspecialchars_decode(file_get_contents($filename->raw_url));
+        $senCodeStr = $codestr;
         $codestr = substr($codestr, 0, 250);
         $existingGist .= '<pre><code class="language-python" id="codeBox__">' . $codestr . '</code></pre><br>';
         $existingGist .= '<form method="post" action="./EditGist/checkYourGist.php">
     <input type="hidden" name="varname" value="'. $filename->raw_url .'">
-    <input type="submit" value="See the code">
+    <input type="submit" class="button-75" value="See the code">
     </form>';
     $existingGist .= "</div><br>";
         //$_SESSION['flink'] = $filename -> raw_url;
@@ -412,6 +397,7 @@ $completeFile .= "</div>";
     font-size: 15px;
     font-weight: 200;
 ">Delete A Gist</a>
+<a href="index.php" class="btn4"> Go Back </a>
 </body>
 <script>
 $(document).ready(function() {
@@ -423,14 +409,11 @@ $(document).ready(function() {
             $('.navbar').removeClass("sticky");
         }
 
-        // scroll-up button show/hide script
-        if (this.scrollY > 500) {
-            $('.scroll-up-btn').addClass("show");
-        } else {
-            $('.scroll-up-btn').removeClass("show");
-        }
     })
 });
+
+
+
 </script>
 
 
