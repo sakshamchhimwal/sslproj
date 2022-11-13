@@ -126,7 +126,7 @@ html {
             </div>
         </div>
     </nav>
-    <a href="../shell.php" class="btn1"> Go To Shell </a>
+    <a href="../shell.php" class="btn1"> Go To Gists </a>
     <form action="../NewGist/insertgist.php" method="post">
         <pre style="margin: 100px;
     padding: 2px;">
@@ -162,27 +162,18 @@ html {
     border-radius: 6px;
     width: 25%;
     font-size: 20px;" id="subbut" onClick=makeCooki()>Save As Gist</button>
-        <pre>
-        <div class="outputBox">
-        </div>
-    </pre>
+
+        </pre>
+
     </form>
-    <<<<<<< Updated upstream <pre id="output"
-        style="margin-left: 30%; font-size: 20px; border: 2px solid crimson; width: 25%; padding: 10px;">
+    <br>
+    <pre id="output" style="margin-left: 30%; font-size: 20px; border: 2px solid crimson; width: 25%; padding: 10px;">
         </pre><br>
-        =======
 
-        <pre id="output" style="margin-left: 30%;
-font-size: 20px;
-border: 2px solid crimson;
-width: 25%;
-padding: 10px;">
 
-</pre><br>
-        >>>>>>> Stashed changes
-        <br>
 
-        <button onClick=runCode() style="   margin-left:30%;
+
+    <button onClick=runCode() style="   margin-left:30%;
     margin-top: 10px;
     padding: 8px;
     color: white;
@@ -192,9 +183,9 @@ padding: 10px;">
     width: 20%;
     font-size: 20px;">Execute</button>
 
-        <br>
-        <br>
-        <a href="makeBlock.php" target="_blank" style=" margin-left:30.5%;
+    <br>
+    <br>
+    <a href="makeBlock.php" target="_blank" style=" margin-left:30.5%;
     margin-top: 10px;
     
     padding: 8px;

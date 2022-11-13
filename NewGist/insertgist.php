@@ -19,6 +19,10 @@
         $gistId = explode("/",$gistId)[4];
         // echo $gistId;
         $code = str_replace('\\join','\r\n',$code);
+        $code = str_replace('\"','&#34;',$code);
+        $code = str_replace('\'','&#38;',$code);
+        $code = str_replace(':','&#58;',$code);
+
         echo $code;
         $postField  ='{"description":"'.$_SESSION['gistDetails']['desc'].'","files":{"'.$_SESSION['gistDetails']['fname'].'":{"content":'.$code.'}}}';
         $ch = curl_init();

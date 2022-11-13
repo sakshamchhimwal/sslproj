@@ -98,7 +98,7 @@
 
     <?php
       $fname = $_POST['varname'] ;
-      $content = htmlspecialchars(file_get_contents($fname));
+      $content = htmlspecialchars_decode(file_get_contents($fname));
       echo "<div><pre><code class='language-python' id='codeBox__'>".$content."</code></pre></div>";
       echo "<div><button onclick='copyText_()'
       style='margin-left: 30%;

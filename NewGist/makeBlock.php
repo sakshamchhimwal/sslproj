@@ -411,7 +411,7 @@ function makeBlock(blockName, start, end, multi, param) {
     lasty += 425;
     svg.appendChild(newRect);
     let txt = document.createElementNS(svgns, "text");
-    txt.textContent = param;
+    txt.textContent = blockName;
     svg.appendChild(txt);
     gsap.set(txt, {
         x: lastx + 10,
@@ -506,7 +506,7 @@ console.log("else-> " + elseList);
 console.log("for-> " + forList);
 for (let k = 0, j = 0; k < funcList.length; k++, j += 2) {
     console.log(funcList[k]);
-    makeBlock(funcList[k], parseInt(defList[j]), parseInt(defList[j + 1]), k, funcNameList[k]);
+    makeBlock(funcList[k], parseInt(defList[j]), parseInt(defList[j + 1]), k);
 }
 
 function printwin() {

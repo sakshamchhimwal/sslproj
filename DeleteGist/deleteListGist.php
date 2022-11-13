@@ -14,19 +14,22 @@
     <title>Shell</title>
 </head>
 <style>
-         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
-    *{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
 
 }
-html{
+
+html {
     scroll-behavior: smooth;
-    background:black;
+    background: black;
 }
-    .navbar{
+
+.navbar {
     width: 100%;
     z-index: 999;
     padding: 10px 0;
@@ -34,32 +37,39 @@ html{
     font-family: 'Ubuntu', sans-serif;
     transition: all 0.3s ease;
 }
-.navbar.sticky{
+
+.navbar.sticky {
     padding: 10px 0;
     background: crimson;
 }
-.navbar .max-width{
+
+.navbar .max-width {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.navbar .logo a{
+
+.navbar .logo a {
     color: #fff;
     font-size: 35px;
     font-weight: 600;
 }
-.navbar .logo a span{
+
+.navbar .logo a span {
     color: crimson;
     transition: all 0.3s ease;
 }
-.navbar.sticky .logo a span{
+
+.navbar.sticky .logo a span {
     color: #fff;
 }
-.navbar .menu li{
+
+.navbar .menu li {
     list-style: none;
     display: inline-block;
 }
-.navbar .menu li a{
+
+.navbar .menu li a {
     display: block;
     color: #fff;
     font-size: 18px;
@@ -67,24 +77,28 @@ html{
     margin-left: 25px;
     transition: color 0.3s ease;
 }
-.navbar .menu li a:hover{
+
+.navbar .menu li a:hover {
     color: crimson;
 }
-.navbar.sticky .menu li a:hover{
+
+.navbar.sticky .menu li a:hover {
     color: #fff;
 }
-.btn1{
+
+.btn1 {
     z-index: 1000;
-    text-decoration:none;
+    text-decoration: none;
     font-family: "Ubuntu";
     color: crimson;
     font-size: 20px;
     font-weight: 300;
     position: absolute;
     top: 4.3%;
-    right: 10%;  
+    right: 10%;
 }
-.btn1:hover{
+
+.btn1:hover {
     color: white;
 }
 </style>
@@ -136,7 +150,7 @@ html{
 ?>
 
 <body>
-<nav class="navbar">
+    <nav class="navbar">
         <div class="max-width">
             <div class="logo"><a href="#">Code<span>Space</span></a></div>
 
@@ -145,7 +159,7 @@ html{
             </div>
         </div>
     </nav>
-    <a href="../shell.php" class="btn1"> Go To Shell </a>
+    <a href="../shell.php" class="btn1"> Go To getAllGists </a>
     <div>
         <H1 style="
             color: white;
@@ -175,21 +189,23 @@ html{
     </form>
 </body>
 <script>
-               $(document).ready(function(){
-    $(window).scroll(function(){
+$(document).ready(function() {
+    $(window).scroll(function() {
         // sticky navbar on scroll script
-        if(this.scrollY > 20){
+        if (this.scrollY > 20) {
             $('.navbar').addClass("sticky");
-        }else{
+        } else {
             $('.navbar').removeClass("sticky");
         }
 
         // scroll-up button show/hide script
-        if(this.scrollY > 500){
+        if (this.scrollY > 500) {
             $('.scroll-up-btn').addClass("show");
-        }else{
+        } else {
             $('.scroll-up-btn').removeClass("show");
         }
-    })})
+    })
+})
 </script>
+
 </html>
