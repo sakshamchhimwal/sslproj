@@ -11,4 +11,4 @@ def main():
 			print(i)
 		else:
 			print(j)
-		print(i)
+		print(i+1)
